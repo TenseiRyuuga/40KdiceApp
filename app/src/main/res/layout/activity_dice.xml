@@ -29,9 +29,10 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="2"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButtonC"
-                android:text="@string/button_C"
-                />
+                android:text="@string/button_C" />
 
             <Button
                 android:id="@+id/button_is"
@@ -42,9 +43,10 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButtonIs"
-                android:text="@string/button_is"
-                />
+                android:text="@string/button_is" />
 
             <Button
                 android:id="@+id/button_d2"
@@ -55,9 +57,10 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButtonD2"
-                android:text="@string/button_d2"
-                />
+                android:text="@string/button_d2" />
 
             <Button
                 android:id="@+id/button_d3"
@@ -68,14 +71,17 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButtonD3"
-                android:text="@string/button_d3"
-                />
+                android:text="@string/button_d3" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTintMode="multiply">
 
             <Button
                 android:id="@+id/button_1"
@@ -86,9 +92,10 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButton1"
-                android:text="@string/button_1"
-                />
+                android:text="@string/button_1" />
 
             <Button
                 android:id="@+id/button_2"
@@ -99,9 +106,10 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButton2"
-                android:text="@string/button_2"
-                />
+                android:text="@string/button_2" />
 
             <Button
                 android:id="@+id/button_3"
@@ -112,9 +120,10 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButton3"
-                android:text="@string/button_3"
-                />
+                android:text="@string/button_3" />
 
             <Button
                 android:id="@+id/button_d4"
@@ -125,9 +134,10 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButtonD4"
-                android:text="@string/button_d4"
-                />
+                android:text="@string/button_d4" />
 
             <Button
                 android:id="@+id/button_d5"
@@ -138,14 +148,17 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButtonD5"
-                android:text="@string/button_d5"
-                />
+                android:text="@string/button_d5" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTintMode="multiply">
 
             <Button
                 android:id="@+id/button_4"
@@ -156,6 +169,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButton4"
                 android:text="@string/button_4"
                 />
@@ -169,6 +184,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButton5"
                 android:text="@string/button_5"
                 />
@@ -182,6 +199,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButton6"
                 android:text="@string/button_6"
                 />
@@ -195,6 +214,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButtonD6"
                 android:text="@string/button_d6"
                 />
@@ -208,6 +229,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButtonD8"
                 android:text="@string/button_d8"
                 />
@@ -226,6 +249,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButton7"
                 android:text="@string/button_7"
                 />
@@ -239,6 +264,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButton8"
                 android:text="@string/button_8"
                 />
@@ -252,6 +279,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButton9"
                 android:text="@string/button_9"
                 />
@@ -265,6 +294,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButtonD10"
                 android:text="@string/button_d10"
                 />
@@ -278,6 +309,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButtonD12"
                 android:text="@string/button_d12"
                 />
@@ -296,6 +329,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButtonSubtract"
                 android:text="@string/button_min"
                 />
@@ -309,6 +344,8 @@
                 android:layout_marginBottom="0dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButton0"
                 android:text="@string/button_0" />
 
@@ -321,6 +358,8 @@
                 android:layout_marginBottom="0dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButtonAdd"
                 android:text="@string/button_plus"
                 app:layout_constraintBottom_toBottomOf="parent" />
@@ -334,6 +373,8 @@
                 android:layout_marginBottom="0dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButtonD20"
                 android:text="@string/button_d20" />
 
@@ -347,6 +388,8 @@
                 android:layout_marginBottom="0dp"
                 android:layout_weight="1"
                 android:background="@android:drawable/btn_default"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
                 android:onClick="onButtonD100"
                 android:text="@string/button_d100" />
 

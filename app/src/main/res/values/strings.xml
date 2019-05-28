@@ -47,4 +47,50 @@
     <string name="button_d12">d12</string>
     <string name="button_d20">d20</string>
     <string name="button_d100">d100</string>
+
+
+    //Roleplay Specific
+    <string name="rpg_name">Dark Heresy</string>
+    <string name="rpg_edition">1ed</string>
+
+    // Characteristics
+    <string name="characteristic_1">Weapon Skill</string>
+    <string name="characteristic_2">Ballistic Skill</string>
+    <string name="characteristic_3">Strength</string>
+    <string name="characteristic_4">Toughness</string>
+    <string name="characteristic_5">Agility</string>
+    <string name="characteristic_6">Intelligence</string>
+    <string name="characteristic_7">Perception</string>
+    <string name="characteristic_8">Willpower</string>
+    <string name="characteristic_9">Fellowship</string>
+    <string name="characteristic_10"></string>
+
+    // Extra Characteristics
+    <string name="characteristic_11"></string>
+    <string name="characteristic_12"></string>
+    <string name="characteristic_13"></string>
+    <string name="characteristic_14"></string>
+    <string name="characteristic_15"></string>
+    <string name="characteristic_16"></string>
+    <string name="characteristic_17"></string>
+    <string name="characteristic_18"></string>
+    <string name="characteristic_19"></string>
+    <string name="characteristic_20"></string>
+
+
+
+
+
+    // Characteristic Abbreviation
+    <string name="characteristic_short_1">WS</string>
+    <string name="characteristic_short_2">BS</string>
+    <string name="characteristic_short_3">S</string>
+    <string name="characteristic_short_4">T</string>
+    <string name="characteristic_short_5">Ag</string>
+    <string name="characteristic_short_6">Int</string>
+    <string name="characteristic_short_7">Per</string>
+    <string name="characteristic_short_8">WP</string>
+    <string name="characteristic_short_9">Fel</string>
+    <string name="characteristic_short_10"></string>
+
 </resources>
