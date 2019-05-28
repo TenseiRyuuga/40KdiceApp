@@ -2,25 +2,17 @@ package com.mangalog.ryuuga.a40kdiceapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.icu.text.StringSearch;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 
 /**
  * Version V0.05
@@ -143,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onNav(View view) {
-        Intent intent = new Intent(this, DrawerMenu.class);
+        Intent intent = new Intent(this, Characteristics.class);
         startActivity(intent);
     }
 

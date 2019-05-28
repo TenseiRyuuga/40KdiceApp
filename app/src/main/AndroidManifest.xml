@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Dice"></activity>
         <activity
-            android:name=".DrawerMenu"
+            android:name=".Characteristics"
             android:label="@string/title_activity_drawer_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
@@ -24,6 +24,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

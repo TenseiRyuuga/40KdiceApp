@@ -22,7 +22,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-public class DrawerMenu extends AppCompatActivity
+public class Characteristics extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -73,7 +73,6 @@ public class DrawerMenu extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -86,13 +85,17 @@ public class DrawerMenu extends AppCompatActivity
             Intent intent = new Intent(this, Dice.class);
             startActivity(intent);
         } else if (id == R.id.nav_slideshow) {
-
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_tools) {
-
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_share) {
-
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_send) {
-
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
