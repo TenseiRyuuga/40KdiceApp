@@ -22,11 +22,22 @@ import java.nio.file.Paths;
 
 public class MainActivity extends AppCompatActivity {
 
+    String dirname;
+    String fileName;
+    String dirPathString;
+    Path dirPath;
+    Path filePath;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.dirname = "Saves";
+        this.fileName = "40k.txt";
+        this.dirPathString = this.getFilesDir().getPath() + "/" + dirname;
+        this.dirPath = Paths.get(dirPathString);
+        this.filePath = dirPath.resolve(fileName);
     }
 
     /** Called when the user taps the Send button */
@@ -35,17 +46,17 @@ public class MainActivity extends AppCompatActivity {
         EditText editText = findViewById(R.id.editText);
         String data = editText.getText().toString();
 
-        String filename = this.getFilesDir().getPath() + "40k.txt";
+
 
         try {
-
-            Path path = Paths.get(filename);
-            Path root = Paths.get(this.getFilesDir().getPath() + "Saves");
-            Path dir = Files.createDirectory(root);
-            Path fileToCreatePath = dir.resolve("40k.txt");
-            System.out.println("File exists: " + Files.exists(fileToCreatePath));
-            System.out.println("File to create path: " + fileToCreatePath);
-            Path newFilePath = Files.createFile(fileToCreatePath);
+            this.dirPath = Paths.get(dirPathString);
+            if(!Files.exists(this.dirPath)) {
+                this.dirPath = Files.createDirectory(this.dirPath);
+            }
+            this.filePath = this.dirPath.resolve(fileName);
+            System.out.println("File exists: " + Files.exists(this.filePath));
+            System.out.println("File to create path: " + this.filePath);
+            Path newFilePath = Files.createFile(this.filePath);
             System.out.println("New file created: " + newFilePath);
             System.out.println("New File exists: " + Files.exists(newFilePath));
             System.out.println("New File isReadable: " + Files.isReadable(newFilePath));
@@ -55,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("New File isRegularFile: " + Files.isRegularFile(newFilePath));
             System.out.println("New File isDirectory: " + Files.isDirectory(newFilePath));
 
-            Files.write(path, data.getBytes());
+            Files.write(this.filePath, data.getBytes());
             return true;
         }
         catch (IOException e) {
@@ -66,72 +77,32 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the Send button */
     private boolean onLoad(View view) {
-        String filename = this.getFilesDir().getPath() + "40k.txt";
         TextView textview = findViewById(R.id.textView);
         textview.setText("");
 
-//        File directory = this.getFilesDir();
-//        File file = new File(directory, filename);
-
-        Path path = Paths.get(filename);
         String data;
         try {
-            data = Files.readAllLines(path, Charset.defaultCharset()).get(0);
+            data = Files.readAllLines(this.filePath, Charset.defaultCharset()).get(0);
             textview.setText(data);
             return true;
         }
         catch (IOException e) {
         e.printStackTrace();
         return false;
-    }
-
-
-
-        // Testing purposes only
-//        try {
-//            Path root = Paths.get(this.getFilesDir().getPath().toString() + "Saves");
-//            Path dir = root;
-//            Path fileToCreatePath = dir.resolve("40k.txt");
-//            Path newFilePath = fileToCreatePath;
-//            System.out.println("New file read: " + newFilePath);
-//            System.out.println("New File exists: " + Files.exists(newFilePath));
-//            System.out.println("New File isReadable: " + Files.isReadable(newFilePath));
-//            System.out.println("New File isWritable: " + Files.isWritable(newFilePath));
-//            System.out.println("New File isExecutable: " + Files.isExecutable(newFilePath));
-//            System.out.println("New File isHidden: " + Files.isHidden(newFilePath));
-//            System.out.println("New File isRegularFile: " + Files.isRegularFile(newFilePath));
-//            System.out.println("New File isDirectory: " + Files.isDirectory(newFilePath));
-//        }
-//        catch (IOException e) {
-//            e.printStackTrace();
-//        }
-        //
+        }
     }
 
     private boolean onDelete(View view) {
-        String filename = this.getFilesDir().getPath() + "40k.txt";
-        Path path = Paths.get(filename);
         try {
-            System.out.println("File exists: " + Files.exists(path));
-            Files.deleteIfExists(path);
-            System.out.println("File exists: " + Files.exists(path));
-        }
-        catch(IOException e) {
-            e.printStackTrace();
-        }
-
-        String dir = this.getFilesDir().getPath() + "40k.txt";
-        Path dirPath = Paths.get(dir);
-        try {
-            System.out.println("File exists: " + Files.exists(dirPath));
-            Files.deleteIfExists(dirPath);
-            System.out.println("File exists: " + Files.exists(dirPath));
-            return true;
+            System.out.println("File exists: " + Files.exists(this.filePath));
+            Files.deleteIfExists(this.filePath);
+            System.out.println("File exists: " + Files.exists(this.filePath));
         }
         catch(IOException e) {
             e.printStackTrace();
             return false;
         }
+        return true;
     }
 
     private void onNav(View view) {
