@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">40K dice App</string>
 
-    <string name="blank"></string>
+    <string name="blank"> </string>
     <string name="zero">0</string>
     <string name="edit">Edit</string>
     <string name="done">Done</string>
@@ -70,23 +70,8 @@
     <string name="characteristic_7">Perception</string>
     <string name="characteristic_8">Willpower</string>
     <string name="characteristic_9">Fellowship</string>
-    <string name="characteristic_10"></string>
 
     // Extra Characteristics
-    <string name="characteristic_11"></string>
-    <string name="characteristic_12"></string>
-    <string name="characteristic_13"></string>
-    <string name="characteristic_14"></string>
-    <string name="characteristic_15"></string>
-    <string name="characteristic_16"></string>
-    <string name="characteristic_17"></string>
-    <string name="characteristic_18"></string>
-    <string name="characteristic_19"></string>
-    <string name="characteristic_20"></string>
-
-
-
-
 
     // Characteristic Abbreviation
     <string name="characteristic_short_1">WS</string>
@@ -98,7 +83,6 @@
     <string name="characteristic_short_7">Per</string>
     <string name="characteristic_short_8">WP</string>
     <string name="characteristic_short_9">Fel</string>
-    <string name="characteristic_short_10"></string>
 
     //Others
     <string name="button_plus_plus">++</string>
