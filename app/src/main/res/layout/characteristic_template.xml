@@ -9,10 +9,10 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/button_substract_more"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -22,10 +22,10 @@
             android:background="@android:drawable/btn_default"
             android:backgroundTint="@color/colorPrimary"
             android:backgroundTintMode="multiply"
-            android:text="@string/button_min"
-            />
+            android:text="@string/button_min_min" />
 
         <Button
+            android:id="@+id/button_substract"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -38,26 +38,28 @@
             android:text="@string/button_min" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/characteristicName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="0dp"
             android:layout_marginBottom="0dp"
-            android:layout_weight="2" />
+            android:layout_weight="2"
+            android:text="@android:string/unknownName" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/characteristicValue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="0dp"
             android:layout_marginBottom="0dp"
             android:layout_weight="2"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:importantForAutofill="no" />
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:text="@string/zero" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/button_add"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -70,7 +72,7 @@
             android:text="@string/button_plus" />
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/button_add_more"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -80,7 +82,7 @@
             android:background="@android:drawable/btn_default"
             android:backgroundTint="@color/colorPrimary"
             android:backgroundTintMode="multiply"
-            android:text="@string/button_plus" />
+            android:text="@string/button_plus_plus" />
 
     </TableRow>
 

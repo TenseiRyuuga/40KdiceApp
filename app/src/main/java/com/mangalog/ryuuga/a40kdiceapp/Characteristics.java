@@ -1,11 +1,13 @@
 package com.mangalog.ryuuga.a40kdiceapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.LayoutInflater;
 import android.view.View;
 
 import androidx.core.view.GravityCompat;
@@ -21,6 +23,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.mangalog.ryuuga.a40kdiceapp.enums.characteristics.characteristicsData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Characteristics extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -92,5 +103,32 @@ public class Characteristics extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void onCreateAndAppendListLayout()
+    {
+        ArrayList<characteristicsData> characteristicList = new ArrayList<>(); //populate it...
+        characteristicList.add(characteristicsData.WS);
+        characteristicList.add(characteristicsData.BS);
+        characteristicList.add(characteristicsData.S);
+        characteristicList.add(characteristicsData.T);
+        characteristicList.add(characteristicsData.Agi);
+        characteristicList.add(characteristicsData.Int);
+        characteristicList.add(characteristicsData.Per);
+        characteristicList.add(characteristicsData.WP);
+        characteristicList.add(characteristicsData.Fel);
+        TextView characteristicName = findViewById(R.id.characteristicName);
+        EditText characteristicValue = findViewById(R.id.characteristicValue);
+        characteristicName.setText(characteristicList.get(0).getShortName());
+        characteristicValue.setText(characteristicList.get(0).getValue());
+//        LinearLayout mainLayout = (LinearLayout) findViewById(R.id.drawer_layout);
+//        LayoutInflater li =  (LayoutInflater)getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        for (int i = 0; i < characteristicList.size();  i++){
+//            View tempView = li.inflate(R.layout.characteristic_template, null);
+//            TextView textMain = (TextView) tempView.findViewById(R.id.characteristicName);
+//
+//            textMain.setText(characteristicList.get(i).getShortName());
+//            mainLayout.addView(tempView);
+//        }
     }
 }

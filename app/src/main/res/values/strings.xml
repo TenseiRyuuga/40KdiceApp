@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">40K dice App</string>
+
+    <string name="blank"></string>
+    <string name="zero">0</string>
+
     <string name="button_save">Save</string>
     <string name="button_load">Load</string>
     <string name="button_delete">Delete</string>
     <string name="text">Enter a message</string>
-    <string name="blank"></string>
     <string name="text_Saved">Saved</string>
     <string name="title_activity_drawer_menu">DrawerMenu</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -92,5 +95,9 @@
     <string name="characteristic_short_8">WP</string>
     <string name="characteristic_short_9">Fel</string>
     <string name="characteristic_short_10"></string>
+
+    //Others
+    <string name="button_plus_plus">++</string>
+    <string name="button_min_min">--</string>
 
 </resources>
