@@ -3,6 +3,8 @@
 
     <string name="blank"></string>
     <string name="zero">0</string>
+    <string name="edit">Edit</string>
+    <string name="done">Done</string>
 
     <string name="button_save">Save</string>
     <string name="button_load">Load</string>
@@ -55,8 +57,10 @@
     //Roleplay Specific
     <string name="rpg_name">Dark Heresy</string>
     <string name="rpg_edition">1ed</string>
+    <string name="twenty">20</string>
 
     // Characteristics
+    <string name="characteristicsTitle">Characteristics</string>
     <string name="characteristic_1">Weapon Skill</string>
     <string name="characteristic_2">Ballistic Skill</string>
     <string name="characteristic_3">Strength</string>
