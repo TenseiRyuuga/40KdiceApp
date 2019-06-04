@@ -2,11 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LAYOUT_CHARACTERISTIC"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Characteristics"
-    tools:showIn="@layout/app_bar_drawer_menu">
+    tools:context=".Characteristics">
 
     <TableRow
         android:id="@+id/CharacteristicsTitle"
@@ -30,16 +29,16 @@
             android:textAlignment="center"
             android:textSize="30sp" />
 
-        <ToggleButton
+        <Button
             android:id="@+id/toggleButton_Edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_default"
             android:backgroundTint="@color/colorPrimary"
             android:backgroundTintMode="multiply"
+            android:onClick="onButtonEdit"
             android:text="@string/edit"
-            android:textOff="@string/edit"
-            android:textOn="@string/done" />
+            android:textOff="@string/edit" />
 
     </TableRow>
 
@@ -47,7 +46,6 @@
         android:id="@+id/Weapons_Skill"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/Ballistic_Skill"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,6 +110,7 @@
             android:background="@android:drawable/btn_default"
             android:backgroundTint="@color/colorPrimary"
             android:backgroundTintMode="multiply"
+            android:onClick="onButtonMore"
             android:text="@string/button_plus" />
 
         <Button
@@ -133,8 +132,6 @@
         android:id="@+id/Ballistic_Skill"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/Strength"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -220,8 +217,6 @@
         android:id="@+id/Strength"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/Toughness"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -307,8 +302,6 @@
         android:id="@+id/Toughness"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/Agility"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -394,8 +387,6 @@
         android:id="@+id/Agility"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/Intelligence"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -481,8 +472,6 @@
         android:id="@+id/Intelligence"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/Perception"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -568,8 +557,6 @@
         android:id="@+id/Perception"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/Willpower"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -655,8 +642,6 @@
         android:id="@+id/Willpower"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/Fellowship"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -742,9 +727,6 @@
         android:id="@+id/Fellowship"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Willpower">
@@ -825,6 +807,5 @@
             android:visibility="visible" />
 
     </TableRow>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,97 +1,64 @@
 package com.mangalog.ryuuga.a40kdiceapp;
 
-import android.content.Intent;
-import android.os.Bundle;
-
-import androidx.core.view.GravityCompat;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-
-import android.view.MenuItem;
-
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.view.Menu;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-import com.mangalog.ryuuga.a40kdiceapp.enums.characteristics.characteristicsData;
+import com.mangalog.ryuuga.a40kdiceapp.enums.system.Settings;
 
 import java.util.ArrayList;
 
-public class Characteristics extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class Characteristics extends AppCompatActivity {
+    ArrayList<Characteristic> characteristicsList;
+
+    Context context;
+    ConstraintLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drawer_menu);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+        context = this;
+        layout = findViewById(R.id.LAYOUT_CHARACTERISTIC);
+        setContentView(R.layout.activity_characteristics);
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+    public void onButtonEdit(View view) {
+        setAllCharacteristicButtons(View.GONE);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.drawer_menu, menu);
-        return true;
+    private void setAllCharacteristicButtons(int viewVisibility) {
+        setButtonVisibility("button_add_ws", viewVisibility);
+
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    private void setCharacteristicButton(int viewVisibility) {
+        setButtonVisibility("button_add_ws", viewVisibility);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
+    private void setButtonVisibility (String buttonName, int visibility) {
+        String packageName = this.getPackageName();
+        String defType = "id";
+        int id = getResources().getIdentifier(buttonName, defType, packageName);
+        Button button = findViewById(id);
+        button.setVisibility(visibility);
+    }
 
-        if (id == R.id.nav_dice) {
-            Intent intent = new Intent(this, Dice.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_slideshow) {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_tools) {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        }
+    public void onButtonMore(View view) {
+        System.out.println("onButtonMore pressed");
+    }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+    public void onButtonMagic(View view) {
+        System.out.println("onButtonMagic pressed");
+        Button button = new Button(Characteristics.this);
+        ConstraintLayout.LayoutParams lp = new ConstraintLayout.LayoutParams(  ConstraintLayout.LayoutParams.WRAP_CONTENT,  ConstraintLayout.LayoutParams.WRAP_CONTENT );
+        button.setLayoutParams(lp);
+        button.setText(Settings.getSettings().BUTTON.toUpperCase());
+        layout.addView(button);
+
     }
 }

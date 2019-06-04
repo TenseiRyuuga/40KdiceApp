@@ -6,23 +6,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.mangalog.ryuuga.a40kdiceapp.enums.system.Value;
 import com.mangalog.ryuuga.a40kdiceapp.enums.dice.calculationModifier;
 import com.mangalog.ryuuga.a40kdiceapp.enums.dice.calculationTarget;
 import com.mangalog.ryuuga.a40kdiceapp.enums.dice.calculationType;
+import com.mangalog.ryuuga.a40kdiceapp.enums.system.Settings;
 
 import java.util.Random;
 
 public class Dice extends AppCompatActivity {
 
+    private Settings settings = Settings.getSettings();
     calculationModifier modifier = calculationModifier.ADD;
-    String result_text = Value.BLANK.getString();
-    String number = Value.BLANK.getString();
+    StringBuilder result_text = new StringBuilder();
+    String number = settings.BLANK;
     calculationTarget target = calculationTarget.A;
-    int a = Value.BLANK.getInteger();
-    int b = Value.BLANK.getInteger();
-    int result = Value.BLANK.getInteger();
-    int sides = Value.BLANK.getInteger();
+    int a = settings.ZERO;
+    int b = settings.ZERO;
+    int result = settings.ZERO;
+    int sides = settings.ZERO;
     boolean locked = false;
 
     @Override
@@ -166,12 +167,9 @@ public class Dice extends AppCompatActivity {
         return new Random().nextInt(sides) + 1;
     }
 
-    private String add(int n) {
-//        if(!result_text.equals(Value.BLANK.getString()) && number.equals(Value.BLANK.getString()) && locked) {
-//            addModifier(this.modifier);
-//        }
+    private StringBuilder add(int n) {
         locked = false;
-        number += Value.BLANK.getString() + n;
+        number += settings.BLANK + n;
 
         if (target.equals(calculationTarget.A)) {
             a = Integer.parseInt(number);
@@ -180,7 +178,7 @@ public class Dice extends AppCompatActivity {
             b = Integer.parseInt(number);
         }
 
-        result_text += "" + n;
+        result_text.append(n);
         refresh();
 
         return result_text;
@@ -188,7 +186,7 @@ public class Dice extends AppCompatActivity {
 
     private void addModifier(calculationModifier mod) {
         this.modifier = mod;
-        this.result_text += mod.getString();
+        this.result_text.append(mod.getString());
         clearNumber();
         switchTarget(calculationTarget.B);
         refresh();
@@ -203,14 +201,14 @@ public class Dice extends AppCompatActivity {
     }
 
     private String clearNumber() {
-        number = Value.BLANK.getString();
+        number = settings.BLANK;
 
         return number;
     }
 
-    private String clearResultText() {
+    private StringBuilder clearResultText() {
         TextView textView_result = findViewById(R.id.textView_result);
-        result_text = Value.BLANK.getString();
+        result_text = new StringBuilder(settings.BLANK);
         textView_result.setText(result_text);
 
         return result_text;
@@ -219,14 +217,12 @@ public class Dice extends AppCompatActivity {
     private void clearAll() {
         clearResultText();
         clearNumber();
-        a = Value.BLANK.getInteger();
-        b = Value.BLANK.getInteger();
-        result = Value.BLANK.getInteger();
-        sides = Value.BLANK.getInteger();
+        a = settings.ZERO;
+        b = settings.ZERO;
+        result = settings.ZERO;
+        sides = settings.ZERO;
         locked = false;
     }
-
-
 
     private calculationTarget switchTarget(calculationTarget newCalculationTarget) {
         target = newCalculationTarget;
@@ -253,22 +249,23 @@ public class Dice extends AppCompatActivity {
             }
             int numberOfDice = a;
 
-            result_text += "d" + sides;
-            result_text += "(";
+            result_text.append("d");
+            result_text.append(sides);
+            result_text.append("(");
             for (int i = 0; numberOfDice > i; i++) {
                 if (i == 0) {
                     a = rollD();
-                    result_text += a;
+                    result_text.append(a);
                     calculate(calculationType.NUMBER);
                 }
                 else {
                     b = rollD();
-                    result_text = result_text + ",";
-                    result_text = result_text + b;
+                    result_text.append(",");
+                    result_text.append(b);
                     calculate(calculationType.NUMBER);
                 }
             }
-            result_text += ")";
+            result_text.append(")");
         }
 
         return result;
@@ -291,12 +288,13 @@ public class Dice extends AppCompatActivity {
     }
 
     // show the result by adding
-    private String addIsResult() {
+    private StringBuilder addIsResult() {
         if (!locked) {
-            result_text += " = " + result;
+            result_text.append(" = ");
+            result_text.append(result);
 
             a = result;
-            b = Value.BLANK.getInteger();
+            b = settings.ZERO;
             switchTarget(calculationTarget.A);
             clearNumber();
             locked = true;
@@ -307,7 +305,7 @@ public class Dice extends AppCompatActivity {
     }
 
     // refresh the screentext
-    private String refresh() {
+    private StringBuilder refresh() {
         TextView textView_result = findViewById(R.id.textView_result);
         textView_result.setText(result_text);
 

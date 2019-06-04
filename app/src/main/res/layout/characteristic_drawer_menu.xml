@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".DrawerInfoScreen"
+    tools:showIn="@layout/app_bar_drawer_menu">
+
+    <TableRow
+        android:id="@+id/CharacteristicsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/Weapons_Skill"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/characteristicTileField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="1"
+            android:text="@string/characteristicsTitle"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/Weapons_Skill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/Ballistic_Skill"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CharacteristicsTitle">
+
+        <TextView
+            android:id="@+id/characteristicName_ws"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:text="@string/characteristic_short_1" />
+
+        <EditText
+            android:id="@+id/characteristicValue_ws"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:hint="@string/characteristic_1"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:text="@string/twenty" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/Ballistic_Skill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/Strength"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Weapons_Skill">
+
+        <TextView
+            android:id="@+id/characteristicName_bs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:text="@string/characteristic_short_2" />
+
+        <EditText
+            android:id="@+id/characteristicValue_bs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:hint="@string/characteristic_2"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:text="@string/twenty" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/Strength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/Toughness"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Ballistic_Skill">
+
+        <TextView
+            android:id="@+id/characteristicName_s"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:text="@string/characteristic_short_3" />
+
+        <EditText
+            android:id="@+id/characteristicValue_s"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:hint="@string/characteristic_3"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:text="@string/twenty" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/Toughness"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/Agility"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Strength">
+
+        <TextView
+            android:id="@+id/characteristicName_t"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:text="@string/characteristic_short_4" />
+
+        <EditText
+            android:id="@+id/characteristicValue_t"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:hint="@string/characteristic_4"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:text="@string/twenty" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/Agility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/Intelligence"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Toughness">
+
+        <TextView
+            android:id="@+id/characteristicName_agi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:text="@string/characteristic_short_5" />
+
+        <EditText
+            android:id="@+id/characteristicValue_agi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:hint="@string/characteristic_5"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:text="@string/twenty" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/Intelligence"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/Perception"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Agility">
+
+        <TextView
+            android:id="@+id/characteristicName_int"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:text="@string/characteristic_short_6" />
+
+        <EditText
+            android:id="@+id/characteristicValue_int"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:hint="@string/characteristic_6"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:text="@string/twenty" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/Perception"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/Willpower"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Intelligence">
+
+        <TextView
+            android:id="@+id/characteristicName_per"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:text="@string/characteristic_short_7" />
+
+        <EditText
+            android:id="@+id/characteristicValue_per"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:hint="@string/characteristic_7"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:text="@string/twenty" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/Willpower"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/Fellowship"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Perception">
+
+        <TextView
+            android:id="@+id/characteristicName_wp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:text="@string/characteristic_short_8" />
+
+        <EditText
+            android:id="@+id/characteristicValue_wp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:hint="@string/characteristic_8"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:text="@string/twenty" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/Fellowship"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Willpower">
+
+        <TextView
+            android:id="@+id/characteristicName_fel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:text="@string/characteristic_short_9" />
+
+        <EditText
+            android:id="@+id/characteristicValue_fel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:hint="@string/characteristic_9"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:text="@string/twenty" />
+
+    </TableRow>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

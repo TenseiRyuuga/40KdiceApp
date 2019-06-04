@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onNav(View view) {
-        Intent intent = new Intent(this, Characteristics.class);
+        Intent intent = new Intent(this, DrawerMenu.class);
         startActivity(intent);
     }
 
