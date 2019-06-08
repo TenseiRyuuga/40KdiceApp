@@ -78,7 +78,7 @@ public class Characteristic {
         return getValue();
     }
     
-    private int toggleButtonVisibility() {
+    public int toggleButtonVisibility() {
         return toggleButtonsVisibility(characteristicButtons);
     }
 
@@ -133,7 +133,7 @@ public class Characteristic {
         return this.appCompatActivity.getPackageName();
     }
 
-    private boolean containsButtonId(int buttonId) {
+    public boolean containsButtonId(int buttonId) {
         for(String buttonName: characteristicButtons) {
             Button button = findViewByString(buttonName);
             Button listButton = findViewById(buttonId);
