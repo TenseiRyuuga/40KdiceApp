@@ -2,6 +2,7 @@ package com.mangalog.ryuuga.a40kdiceapp;
 
 import android.content.res.Resources;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -12,7 +13,6 @@ import com.mangalog.ryuuga.a40kdiceapp.enums.characteristics.characteristicsData
 import com.mangalog.ryuuga.a40kdiceapp.enums.system.Settings;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Characteristic {
 
@@ -32,6 +32,7 @@ public class Characteristic {
 
     private EditText value;
     private TextView name;
+    private boolean buttonsVisible = false;
 
     public Characteristic(AppCompatActivity appCompatActivity, characteristicsData characteristic) {
         this.appCompatActivity = appCompatActivity;
@@ -46,8 +47,8 @@ public class Characteristic {
         this.defType = "id";
         this.packageName = appCompatActivity.getPackageName();
 
-        ArrayList<String> characteristicButtons = new ArrayList<>();
-        ArrayList<String> characteristicFields = new ArrayList<>();
+        characteristicButtons = new ArrayList<>();
+        characteristicFields = new ArrayList<>();
 
         // set button names
         characteristicButtons.add(button + subtract + more + characteristic.getShortName().toLowerCase());
@@ -60,16 +61,15 @@ public class Characteristic {
         characteristicFields.add("characteristicValue_" + characteristic.getShortName().toLowerCase());
 
         //set fields to correct value
-        int nameId = getResources().getIdentifier(characteristicFields.get(0), defType, packageName);
-        name = findViewById(nameId);
-
-        int valueId = getResources().getIdentifier(characteristicFields.get(1), defType, packageName);
-        value = findViewById(valueId);
+        name = findViewByString(characteristicFields.get(0));
+        value = findViewByString(characteristicFields.get(1));
 
     }
 
     public int add(int value) {
-        this.value.setText(Math.addExact(getValue(), value));
+        int number = Math.addExact(getValue(), value);
+        String result = Settings.getSettings().BLANK + number;
+        this.value.setText(result);
         return getValue();
     }
 
@@ -77,16 +77,74 @@ public class Characteristic {
         this.value.setText(Math.subtractExact(getValue(), value));
         return getValue();
     }
+    
+    private int toggleButtonVisibility() {
+        return toggleButtonsVisibility(characteristicButtons);
+    }
 
+    private int toggleButtonsVisibility (ArrayList<String> buttons) {
+        int result = -1;
+        for (String buttonName: buttons) {
+            result = toggleButtonVisibility(buttonName);
+        }
+        return result;
+    }
+
+    private int toggleButtonVisibility (String buttonName) {
+        String packageName = getPackageName();
+        String defType = "id";
+        int id = getResources().getIdentifier(buttonName, defType, packageName);
+        Button button = findViewById(id);
+        int visibility = button.getVisibility();
+        switch(visibility) {
+            case View.VISIBLE:
+                button.setVisibility(View.GONE);
+                name.setText(characteristic.getLongName());
+                break;
+
+            case View.GONE:
+                button.setVisibility(View.VISIBLE);
+                name.setText(characteristic.getShortName());
+                break;
+        }
+        return button.getVisibility();
+    }
+
+    // getters and setters
     private int getValue() {
         return Integer.parseInt(this.value.getText().toString());
     }
-
+    
+    // AppCompatActivity methods
     private Resources getResources() {
         return  this.appCompatActivity.getResources();
+    }
+
+    private <T extends View> T findViewByString(String string) {
+        int id = getResources().getIdentifier(string, defType, packageName);
+        return findViewById(id);
     }
 
     private <T extends View> T findViewById(@IdRes int id) {
         return this.appCompatActivity.findViewById(id);
     }
+    
+    private String getPackageName() {
+        return this.appCompatActivity.getPackageName();
+    }
+
+    private boolean containsButtonId(int buttonId) {
+        for(String buttonName: characteristicButtons) {
+            Button button = findViewByString(buttonName);
+            Button listButton = findViewById(buttonId);
+            int listId = button.getId();
+            if(buttonId == listId) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // getters and setters
+
 }
