@@ -1,12 +1,20 @@
-package com.mangalog.ryuuga.a40kdiceapp;
+package com.mangalog.ryuuga.a40kdiceapp.main;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.google.android.material.navigation.NavigationView;
+import com.mangalog.ryuuga.a40kdiceapp.models.characteristic.CharacteristicsInfoScreen;
+import com.mangalog.ryuuga.a40kdiceapp.models.menus.DrawerMenu;
+import com.mangalog.ryuuga.a40kdiceapp.R;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -32,12 +40,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_drawer_menu);
         this.dirname = "Saves";
         this.fileName = "40k.txt";
         this.dirPathString = this.getFilesDir().getPath() + "/" + dirname;
         this.dirPath = Paths.get(dirPathString);
         this.filePath = dirPath.resolve(fileName);
+
+        Toolbar toolbar = findViewById(R.id.toolbar_main);
+        setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view_main);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+//        navigationView.setNavigationItemSelectedListener(this);
     }
 
     /** Called when the user taps the Send button */

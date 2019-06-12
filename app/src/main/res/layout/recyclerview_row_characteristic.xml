@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp"
+    android:orientation="horizontal"
+    app:cardBackgroundColor="@color/colorPrimary">
+
+    <TableRow
+        android:id="@+id/recyclerview_row_characteristic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/button_characteristic_subtract_more"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="1"
+            android:background="@android:drawable/btn_default"
+            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTintMode="multiply"
+            android:text="@string/button_min_min"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/button_characteristic_subtract"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="1"
+            android:background="@android:drawable/btn_default"
+            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTintMode="multiply"
+            android:text="@string/button_min"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/characteristicName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:text="@string/blank"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <EditText
+            android:hint="@string/hint_characteristic_value"
+            android:id="@+id/characteristicValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:text="@string/blank"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/button_characteristic_add"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="1"
+            android:background="@android:drawable/btn_default"
+            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTintMode="multiply"
+            android:text="@string/button_plus"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/button_characteristic_add_more"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="1"
+            android:background="@android:drawable/btn_default"
+            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTintMode="multiply"
+            android:text="@string/button_plus_plus"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/button_dice_roll"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="1"
+            android:background="@android:drawable/btn_default"
+            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTintMode="multiply"
+            android:text="@string/button_test"
+            android:visibility="visible" />
+
+    </TableRow>
+</androidx.cardview.widget.CardView>

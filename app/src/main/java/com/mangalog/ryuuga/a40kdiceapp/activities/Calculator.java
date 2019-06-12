@@ -1,4 +1,4 @@
-package com.mangalog.ryuuga.a40kdiceapp;
+package com.mangalog.ryuuga.a40kdiceapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,25 +6,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.mangalog.ryuuga.a40kdiceapp.R;
+import com.mangalog.ryuuga.a40kdiceapp.models.dicebag.Dice;
+import com.mangalog.ryuuga.a40kdiceapp.models.dicebag.DiceBag;
 import com.mangalog.ryuuga.a40kdiceapp.enums.dice.calculationModifier;
 import com.mangalog.ryuuga.a40kdiceapp.enums.dice.calculationTarget;
 import com.mangalog.ryuuga.a40kdiceapp.enums.dice.calculationType;
-import com.mangalog.ryuuga.a40kdiceapp.enums.system.Settings;
+import com.mangalog.ryuuga.a40kdiceapp.system.Settings;
 
-import java.util.Random;
-
-public class Dice extends AppCompatActivity {
+public class Calculator extends AppCompatActivity {
 
     private Settings settings = Settings.getSettings();
-    calculationModifier modifier = calculationModifier.ADD;
-    StringBuilder result_text = new StringBuilder();
-    String number = settings.BLANK;
-    calculationTarget target = calculationTarget.A;
-    int a = settings.ZERO;
-    int b = settings.ZERO;
-    int result = settings.ZERO;
-    int sides = settings.ZERO;
-    boolean locked = false;
+    private DiceBag diceBag = DiceBag.getDiceBag();
+    private calculationModifier modifier = calculationModifier.ADD;
+    private StringBuilder result_text = new StringBuilder();
+    private String number = settings.BLANK;
+    private calculationTarget target = calculationTarget.A;
+    private int a = settings.ZERO;
+    private int b = settings.ZERO;
+    private int result = settings.ZERO;
+    private int sides = settings.ZERO;
+    private boolean locked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,10 +165,6 @@ public class Dice extends AppCompatActivity {
        addIsResult();
    }
 
-    protected int rollD() {
-        return new Random().nextInt(sides) + 1;
-    }
-
     private StringBuilder add(int n) {
         locked = false;
         number += settings.BLANK + n;
@@ -249,17 +247,18 @@ public class Dice extends AppCompatActivity {
             }
             int numberOfDice = a;
 
-            result_text.append("d");
-            result_text.append(sides);
+            Dice dice = diceBag.getDice(sides, "d" + sides);
+
+            result_text.append(dice.getDiceName());
             result_text.append("(");
             for (int i = 0; numberOfDice > i; i++) {
                 if (i == 0) {
-                    a = rollD();
+                    a = dice.roll();
                     result_text.append(a);
                     calculate(calculationType.NUMBER);
                 }
                 else {
-                    b = rollD();
+                    b = dice.roll();
                     result_text.append(",");
                     result_text.append(b);
                     calculate(calculationType.NUMBER);

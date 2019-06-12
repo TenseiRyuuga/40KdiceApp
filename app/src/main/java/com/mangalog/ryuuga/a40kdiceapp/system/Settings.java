@@ -1,10 +1,4 @@
-package com.mangalog.ryuuga.a40kdiceapp.enums.system;
-
-import com.mangalog.ryuuga.a40kdiceapp.Characteristic;
-import com.mangalog.ryuuga.a40kdiceapp.enums.characteristics.characteristicsData;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.mangalog.ryuuga.a40kdiceapp.system;
 
 public class Settings {
 
@@ -12,13 +6,13 @@ public class Settings {
 
     // Strings
     public String BLANK;
-    public String BUTTON;
-    public String SUBTRACT;
-    public String ADD;
-    public String MORE;
+    public String CHARACTERISTIC_DICE_TEST_NAME;
 
     // Numbers
-    public int ZERO = 0;
+    public int ZERO;
+    public int CHARACTERISTIC_AMOUNT;
+    public int CHARACTERISTIC_MORE_AMOUNT;
+    public int CHARACTERISTIC_DICE_TEST_AMOUNT;
 
     private Settings () {
         super();
@@ -35,12 +29,12 @@ public class Settings {
     private void createSettings() {
         // set Strings
         BLANK = "";
-        BUTTON = "button_";
-        SUBTRACT = "subtract_";
-        ADD = "add_";
-        MORE = "more_";
+        CHARACTERISTIC_DICE_TEST_NAME = "d100";
 
         // set Numbers
         ZERO = 0;
+        CHARACTERISTIC_AMOUNT = 1;
+        CHARACTERISTIC_MORE_AMOUNT = 5;
+        CHARACTERISTIC_DICE_TEST_AMOUNT = 100;
     }
 }
