@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
-import com.mangalog.ryuuga.a40kdiceapp.models.characteristic.CharacteristicsInfoScreen;
 import com.mangalog.ryuuga.a40kdiceapp.models.menus.DrawerMenu;
 import com.mangalog.ryuuga.a40kdiceapp.R;
 

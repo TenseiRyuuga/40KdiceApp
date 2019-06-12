@@ -89,6 +89,7 @@
 
     // hints
     <string name="hint_characteristic_value">this field contains the value of the characteristic against which the d100 roll will be compared</string>
+    <string name="hint_enter_text">enter text here</string>
 
     //Others
     <string name="button_plus_plus">++</string>
