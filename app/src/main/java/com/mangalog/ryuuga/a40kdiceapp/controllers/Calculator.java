@@ -1,4 +1,4 @@
-package com.mangalog.ryuuga.a40kdiceapp.activities;
+package com.mangalog.ryuuga.a40kdiceapp.controllers;
 
 import androidx.appcompat.app.AppCompatActivity;
 

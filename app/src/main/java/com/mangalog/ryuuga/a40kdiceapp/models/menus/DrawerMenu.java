@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewStub;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,49 +15,23 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
-import com.mangalog.ryuuga.a40kdiceapp.activities.Calculator;
-import com.mangalog.ryuuga.a40kdiceapp.main.MainActivity;
+import com.mangalog.ryuuga.a40kdiceapp.controllers.Calculator;
+import com.mangalog.ryuuga.a40kdiceapp.controllers.main.MainActivity;
 import com.mangalog.ryuuga.a40kdiceapp.R;
 import com.mangalog.ryuuga.a40kdiceapp.models.characteristic.CharacteristicsInfoScreen;
 import com.mangalog.ryuuga.a40kdiceapp.system.Settings;
 
-public class DrawerMenu extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class DrawerMenu extends BasicDrawerMenu {
 
     CharacteristicsInfoScreen characteristicsInfoScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_characteristic_drawer_menu);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+        ViewStub stub = findViewById(R.id.basic_bar_drawer_stub);
+        stub.setLayoutResource(R.layout.characteristics_drawer_menu);
+        stub.inflate();
         this.characteristicsInfoScreen = new CharacteristicsInfoScreen(this);
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.drawer_menu, menu);
-        return true;
     }
 
     @Override
@@ -76,36 +51,6 @@ public class DrawerMenu extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        Intent intent = new Intent(this, MainActivity.class);
-        switch(id) {
-            case R.id.nav_home:
-                intent = new Intent(this, MainActivity.class);
-                break;
-            case R.id.nav_dice:
-                intent = new Intent(this, Calculator.class);
-                break;
-            case R.id.nav_characteristics:
-                intent = new Intent(this, DrawerMenu.class);
-                break;
-            case R.id.nav_test:
-                intent = new Intent(this, MainActivity.class);
-                break;
-            case R.id.nav_settings:
-                intent = new Intent(this, Settings.class);
-                break;
-        }
-
-        startActivity(intent);
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
     public void onButtonEdit(View view) {

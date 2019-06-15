@@ -14,15 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.Calculator" />
+        <activity android:name=".controllers.Calculator" />
+        <activity android:name=".models.menus.BasicDrawerMenu" />
         <activity
             android:name=".models.menus.DrawerMenu"
             android:label="@string/title_activity_characteristics"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".main.MainActivity"
+            android:name=".controllers.main.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

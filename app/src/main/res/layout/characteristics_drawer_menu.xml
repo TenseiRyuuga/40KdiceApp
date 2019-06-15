@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".models.menus.DrawerMenu"
-    tools:showIn="@layout/characteristic_bar_drawer_menu">
+    tools:showIn="@layout/basic_bar_drawer_menu">
 
     <TableRow
         android:id="@+id/CharacteristicsTitle"

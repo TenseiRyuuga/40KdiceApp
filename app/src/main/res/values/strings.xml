@@ -95,5 +95,10 @@
     <string name="button_plus_plus">++</string>
     <string name="button_min_min">--</string>
     <string name="button_test">Test</string>
+    <string name="title_activity_example_drawer_delete_me">ExampleDrawer_deleteMe</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
 
 </resources>
