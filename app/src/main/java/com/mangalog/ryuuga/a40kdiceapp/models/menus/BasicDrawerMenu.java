@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewStub;
 
 import androidx.annotation.NonNull;
@@ -13,14 +14,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.mangalog.ryuuga.a40kdiceapp.R;
 import com.mangalog.ryuuga.a40kdiceapp.controllers.Calculator;
 import com.mangalog.ryuuga.a40kdiceapp.controllers.main.MainActivity;
+import com.mangalog.ryuuga.a40kdiceapp.models.BasicAppCompatActivity;
 import com.mangalog.ryuuga.a40kdiceapp.system.Settings;
 
-public class BasicDrawerMenu extends AppCompatActivity
+public class BasicDrawerMenu extends BasicAppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -52,6 +56,7 @@ public class BasicDrawerMenu extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        menu.add(Menu.NONE, settings.OPTION_MENU_ITEM_ID_SETTINGS, settings.OPTION_MENU_ITEM_ORDER_IN_CATEGORY, "Settings");
         getMenuInflater().inflate(R.menu.basic_drawer_menu, menu);
         return true;
     }
@@ -64,9 +69,8 @@ public class BasicDrawerMenu extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        switch (id) {
-            case R.id.action_settings:
-                return  true;
+        if (id == settings.OPTION_MENU_ITEM_ID_SETTINGS) {
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -99,6 +103,11 @@ public class BasicDrawerMenu extends AppCompatActivity
 
         DrawerLayout drawer = findViewById(R.id.basic_drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    public boolean checkIfInMenu(String string) {
+//        for()
         return true;
     }
 }

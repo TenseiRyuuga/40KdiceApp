@@ -2,6 +2,7 @@ package com.mangalog.ryuuga.a40kdiceapp.models.characteristic;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,22 +10,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.mangalog.ryuuga.a40kdiceapp.enums.characteristics.characteristicsData;
 import com.mangalog.ryuuga.a40kdiceapp.system.Settings;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class Characteristic {
 
-    private AppCompatActivity appCompatActivity;
     private Settings settings;
 
     private characteristicsData characteristicData;
     private ArrayList<Button> characteristicButtons;
+
     private TextView nameField;
+    private EditText valueField;
 
     private int value;
     private String name;
 
-    public Characteristic(AppCompatActivity appCompatActivity, characteristicsData characteristicData) {
-        this.appCompatActivity = appCompatActivity;
+
+
+    public Characteristic(characteristicsData characteristicData) {
         this.characteristicData = characteristicData;
 
         settings = Settings.getSettings();
@@ -68,11 +74,13 @@ public class Characteristic {
             case View.VISIBLE:
                 button.setVisibility(View.GONE);
                 name = characteristicData.getShortName();
+                valueField.setEnabled(true);
                 break;
 
             case View.GONE:
                 button.setVisibility(View.VISIBLE);
                 name = characteristicData.getLongName();
+                valueField.setEnabled(false);
                 break;
 
             case View.INVISIBLE:
@@ -100,7 +108,12 @@ public class Characteristic {
     }
 
     public void setValueAsString(String string) {
-        setValueAsInt(Integer.parseInt(string));
+        if(string != null && !string.equals("")) {
+            setValueAsInt(Integer.parseInt(string));
+        }
+        else {
+            setValueAsInt(0);
+        }
     }
 
     private  void setValueAsInt(int value) {
@@ -110,4 +123,25 @@ public class Characteristic {
     public void setNameField(TextView nameField) {
         this.nameField = nameField;
     }
+
+    public void setValueField(EditText valueField) {
+        this.valueField = valueField;
+    }
+
+    public JSONObject getAsJSONObject() {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put(settings.JSON_NAME, this.name);
+            jsonObject.put(settings.JSON_VALUE, this.value);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
+    }
+
+    public void setByJSONObject(JSONObject jsonObject) {
+        this.name = jsonObject.optString(settings.JSON_NAME);
+        this.value = jsonObject.optInt(settings.JSON_VALUE);
+    }
+
 }

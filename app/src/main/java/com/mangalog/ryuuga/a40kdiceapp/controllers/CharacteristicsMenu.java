@@ -1,4 +1,4 @@
-package com.mangalog.ryuuga.a40kdiceapp.models.menus;
+package com.mangalog.ryuuga.a40kdiceapp.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,9 +19,10 @@ import com.mangalog.ryuuga.a40kdiceapp.controllers.Calculator;
 import com.mangalog.ryuuga.a40kdiceapp.controllers.main.MainActivity;
 import com.mangalog.ryuuga.a40kdiceapp.R;
 import com.mangalog.ryuuga.a40kdiceapp.models.characteristic.CharacteristicsInfoScreen;
+import com.mangalog.ryuuga.a40kdiceapp.models.menus.BasicDrawerMenu;
 import com.mangalog.ryuuga.a40kdiceapp.system.Settings;
 
-public class DrawerMenu extends BasicDrawerMenu {
+public class CharacteristicsMenu extends BasicDrawerMenu {
 
     CharacteristicsInfoScreen characteristicsInfoScreen;
 
@@ -35,6 +36,13 @@ public class DrawerMenu extends BasicDrawerMenu {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menu.add(Menu.NONE, settings.OPTION_MENU_ITEM_ID_EDIT, settings.OPTION_MENU_ITEM_ORDER_IN_CATEGORY, "Edit");
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -42,12 +50,8 @@ public class DrawerMenu extends BasicDrawerMenu {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        switch (id) {
-            case R.id.action_settings:
-                return  true;
-            case R.id.action_edit:
+        if (id == settings.OPTION_MENU_ITEM_ID_EDIT) {
                 onButtonEdit(item.getActionView());
-                break;
         }
 
         return super.onOptionsItemSelected(item);

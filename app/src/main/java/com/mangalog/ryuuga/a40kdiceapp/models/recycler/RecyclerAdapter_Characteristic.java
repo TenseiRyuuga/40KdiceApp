@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mangalog.ryuuga.a40kdiceapp.models.characteristic.Characteristic;
 import com.mangalog.ryuuga.a40kdiceapp.R;
+import com.mangalog.ryuuga.a40kdiceapp.models.characteristic.Characteristics;
 import com.mangalog.ryuuga.a40kdiceapp.models.dicebag.DiceBag;
 import com.mangalog.ryuuga.a40kdiceapp.system.Settings;
 
@@ -27,8 +28,8 @@ public class RecyclerAdapter_Characteristic extends RecyclerView.Adapter<Recycle
     private int mLastPosition = 0;
     private DiceBag diceBag;
 
-    public RecyclerAdapter_Characteristic(ArrayList<Characteristic> characteristicList) {
-        this.characteristicList = characteristicList;
+    public RecyclerAdapter_Characteristic(Characteristics characteristics) {
+        this.characteristicList = characteristics.getCharacteristicsList();
     }
 
     @Override
@@ -48,6 +49,7 @@ public class RecyclerAdapter_Characteristic extends RecyclerView.Adapter<Recycle
         characteristic.addButton(holder.add);
         characteristic.addButton(holder.add_more);
         characteristic.setNameField(holder.characteristicName);
+        characteristic.setValueField(holder.characteristicValue);
         characteristic.addButton(holder.button_diceRoll);
 
         holder.characteristicName.setText(characteristic.getName());
@@ -128,9 +130,9 @@ public class RecyclerAdapter_Characteristic extends RecyclerView.Adapter<Recycle
         return(null != characteristicList ? characteristicList.size():0);
     }
 
-    public void notifyData(ArrayList<Characteristic> characteristicList) {
-        Log.d("notifyData ", characteristicList.size() + "");
-        this.characteristicList = characteristicList;
+    public void notifyData(Characteristics characteristics) {
+        Log.d("notifyData ", characteristics.getCharacteristicsList().size() + "");
+        this.characteristicList = characteristics.getCharacteristicsList();
         notifyDataSetChanged();
     }
 

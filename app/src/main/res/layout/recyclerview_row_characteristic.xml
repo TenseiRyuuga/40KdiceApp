@@ -55,7 +55,6 @@
             tools:visibility="visible" />
 
         <EditText
-            android:hint="@string/hint_characteristic_value"
             android:id="@+id/characteristicValue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -63,6 +62,8 @@
             android:layout_marginBottom="0dp"
             android:layout_weight="2"
             android:ems="10"
+            android:enabled="false"
+            android:hint="@string/hint_characteristic_value"
             android:importantForAutofill="no"
             android:inputType="number"
             android:text="@string/blank"

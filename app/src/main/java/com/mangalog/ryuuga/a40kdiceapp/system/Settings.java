@@ -14,6 +14,15 @@ public class Settings {
     public int CHARACTERISTIC_MORE_AMOUNT;
     public int CHARACTERISTIC_DICE_TEST_AMOUNT;
 
+    public int OPTION_MENU_ITEM_ID_SETTINGS;
+    public int OPTION_MENU_ITEM_ID_EDIT;
+
+    public int OPTION_MENU_ITEM_ORDER_IN_CATEGORY;
+
+    public String JSON_NAME = "name";
+    public String JSON_VALUE = "value";
+
+
     private Settings () {
         super();
         createSettings();
@@ -36,5 +45,10 @@ public class Settings {
         CHARACTERISTIC_AMOUNT = 1;
         CHARACTERISTIC_MORE_AMOUNT = 5;
         CHARACTERISTIC_DICE_TEST_AMOUNT = 100;
+
+        OPTION_MENU_ITEM_ID_SETTINGS = 1;
+        OPTION_MENU_ITEM_ID_EDIT = 2;
+
+        OPTION_MENU_ITEM_ORDER_IN_CATEGORY = 100;
     }
 }

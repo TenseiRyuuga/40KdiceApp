@@ -17,8 +17,9 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.mangalog.ryuuga.a40kdiceapp.controllers.Calculator;
-import com.mangalog.ryuuga.a40kdiceapp.models.menus.DrawerMenu;
+import com.mangalog.ryuuga.a40kdiceapp.controllers.CharacteristicsMenu;
 import com.mangalog.ryuuga.a40kdiceapp.R;
+import com.mangalog.ryuuga.a40kdiceapp.models.menus.BasicDrawerMenu;
 import com.mangalog.ryuuga.a40kdiceapp.system.Settings;
 
 import java.io.IOException;
@@ -27,13 +28,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-/**
- * Version V0.05
- * Changes since last version:
- *
- */
-
-public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends BasicDrawerMenu {
 
     String dirname;
     String fileName;
@@ -130,7 +125,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
     private void onNav(View view) {
-        Intent intent = new Intent(this, DrawerMenu.class);
+        Intent intent = new Intent(this, CharacteristicsMenu.class);
         startActivity(intent);
     }
 
@@ -152,68 +147,5 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     /** Called when the user taps the Nav button */
     public void onButtonNav(View view) {
         onNav(view);
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.basic_drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.basic_drawer_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        switch (id) {
-            case R.id.action_settings:
-                return  true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        Intent intent = new Intent(this, MainActivity.class);
-        switch(id) {
-            case R.id.nav_home:
-                intent = new Intent(this, MainActivity.class);
-                break;
-            case R.id.nav_dice:
-                intent = new Intent(this, Calculator.class);
-                break;
-            case R.id.nav_characteristics:
-                intent = new Intent(this, DrawerMenu.class);
-                break;
-            case R.id.nav_test:
-                intent = new Intent(this, MainActivity.class);
-                break;
-            case R.id.nav_settings:
-                intent = new Intent(this, Settings.class);
-                break;
-        }
-
-        startActivity(intent);
-
-        DrawerLayout drawer = findViewById(R.id.basic_drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 }
