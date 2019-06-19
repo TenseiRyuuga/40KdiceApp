@@ -261,7 +261,7 @@ public class Calculator extends AppCompatActivity {
                     b = dice.roll();
                     result_text.append(",");
                     result_text.append(b);
-                    calculate(calculationType.NUMBER);
+                    a = calculate(calculationType.NUMBER);
                 }
             }
             result_text.append(")");
