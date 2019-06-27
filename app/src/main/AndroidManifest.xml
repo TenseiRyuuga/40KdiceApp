@@ -16,6 +16,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".controllers.Calculator" />
+        <activity android:name=".models.BasicAppCompatActivity" />
         <activity android:name=".models.menus.BasicDrawerMenu" />
         <activity
             android:name=".controllers.CharacteristicsMenu"

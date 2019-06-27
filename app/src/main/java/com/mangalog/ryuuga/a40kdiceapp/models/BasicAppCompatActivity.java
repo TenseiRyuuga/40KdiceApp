@@ -17,10 +17,9 @@ public class BasicAppCompatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_drawer_menu);
         settings = Settings.getSettings();
-        storageManager = getStorageManager();
-//        storageManager.save("test");
+        getStorageManager();
+//        privateStorageManager.save("test");
     }
 
     private StorageManager getStorageManager() {

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -40,23 +41,26 @@ public class MainActivity extends BasicDrawerMenu {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_drawer_menu);
+//        setContentView(R.layout.activity_main_drawer_menu);
         this.dirname = "Saves";
         this.fileName = "40k.txt";
         this.dirPathString = this.getFilesDir().getPath() + "/" + dirname;
         this.dirPath = Paths.get(dirPathString);
         this.filePath = dirPath.resolve(fileName);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = findViewById(R.id.basic_drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view_main);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//
+//        DrawerLayout drawer = findViewById(R.id.basic_drawer_layout);
+//        NavigationView navigationView = findViewById(R.id.nav_view_main);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
 //        navigationView.setNavigationItemSelectedListener(this);
+        ViewStub stub = findViewById(R.id.basic_bar_drawer_stub);
+        stub.setLayoutResource(R.layout.activity_main);
+        stub.inflate();
     }
 
     /** Called when the user taps the Send button */

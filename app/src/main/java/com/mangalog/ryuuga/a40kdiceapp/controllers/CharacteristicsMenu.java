@@ -38,8 +38,10 @@ public class CharacteristicsMenu extends BasicDrawerMenu {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        super.onCreateOptionsMenu(menu);
         menu.add(Menu.NONE, settings.OPTION_MENU_ITEM_ID_EDIT, settings.OPTION_MENU_ITEM_ORDER_IN_CATEGORY, "Edit");
-        return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.basic_drawer_menu, menu);
+        return true;
     }
 
     @Override
