@@ -1,10 +1,10 @@
 package com.mangalog.ryuuga.a40kdiceapp.models.characteristic;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.mangalog.ryuuga.a40kdiceapp.enums.characteristics.characteristicsData;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -24,18 +24,39 @@ public class Characteristics {
         return characteristicsList;
     }
 
-    public void toggleAllCharacteristicButtons() {
+    int toggleAllCharacteristicButtons() {
+        // return 8 when edit buttons appear or 0 when they disappear
+        int result = -1;
         for(Characteristic characteristic: characteristicsList) {
-            characteristic.toggleButtonVisibility();
+            result = characteristic.toggleButtonVisibility();
         }
+        return result;
     }
 
     public JSONArray getAsJSONArray() {
         JSONArray jsonArray = new JSONArray();
         for (Characteristic characteristic: characteristicsList) {
-            jsonArray.put(characteristic.getAsJSONObject());
+            try {
+                jsonArray.put(characteristicsList.indexOf(characteristic), characteristic.getAsJSONObject());
+            }
+            catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return jsonArray;
+    }
+
+    public boolean setByJSONArray(JSONArray jsonArray) {
+        for (Characteristic characteristic: characteristicsList) {
+            try {
+                characteristic.setByJSONObject(jsonArray.getJSONObject(characteristicsList.indexOf(characteristic)));
+            }
+            catch (JSONException e) {
+                e.printStackTrace();
+                return false;
+            }
         }
         jsonArray.put(characteristicsList.get(0));
-        return jsonArray;
+        return true;
     }
 }

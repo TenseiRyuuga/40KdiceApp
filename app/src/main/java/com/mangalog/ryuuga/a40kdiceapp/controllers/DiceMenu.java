@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.TextView;
 
 import com.mangalog.ryuuga.a40kdiceapp.R;
@@ -12,9 +13,10 @@ import com.mangalog.ryuuga.a40kdiceapp.models.dicebag.DiceBag;
 import com.mangalog.ryuuga.a40kdiceapp.enums.dice.calculationModifier;
 import com.mangalog.ryuuga.a40kdiceapp.enums.dice.calculationTarget;
 import com.mangalog.ryuuga.a40kdiceapp.enums.dice.calculationType;
+import com.mangalog.ryuuga.a40kdiceapp.models.menus.BasicDrawerMenu;
 import com.mangalog.ryuuga.a40kdiceapp.system.Settings;
 
-public class Calculator extends AppCompatActivity {
+public class DiceMenu extends BasicDrawerMenu {
 
     private Settings settings = Settings.getSettings();
     private DiceBag diceBag = DiceBag.getDiceBag();
@@ -31,7 +33,10 @@ public class Calculator extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dice);
+        // Set The View
+        ViewStub stub = findViewById(R.id.basic_bar_drawer_stub);
+        stub.setLayoutResource(R.layout.activity_dice);
+        stub.inflate();
     }
 
     /** Called when the user taps the 1 button */

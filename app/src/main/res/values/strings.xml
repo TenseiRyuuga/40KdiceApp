@@ -1,34 +1,28 @@
 <resources>
-    <string name="app_name">40K dice App</string>
+    <string name="app_name">40K App</string>
 
     <string name="blank"> </string>
-    <string name="zero">0</string>
     <string name="edit">Edit</string>
-    <string name="done">Done</string>
 
     <string name="button_save">Save</string>
     <string name="button_load">Load</string>
     <string name="button_delete">Delete</string>
-    <string name="text">Enter a message</string>
-    <string name="text_Saved">Saved</string>
-    <string name="title_activity_characteristics">Characteristics</string>
-    <string name="title_activity_main">40K App</string>
+    <string name="enter_message">Enter a message</string>
+    <string name="title_activity_main_menu">40K App</string>
+    <string name="title_activity_characteristics_menu">Characteristics</string>
+    <string name="title_activity_dice_menu">Dice</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-
-    <string name="action_settings">Settings</string>
-    <string name="action_edit">Edit</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_dice">Dice</string>
     <string name="menu_system">System</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_characteristics">Characteristics</string>
-    <string name="menu_send">Send</string>
-    <string name="title_activity_dice">Dice</string>
+    <string name="menu_save">Save</string>
+    <string name="menu_load">Load</string>
+    <string name="menu_debug">Debug</string>
 
     <string name="button_1">1</string>
     <string name="button_2">2</string>
@@ -60,32 +54,13 @@
     //Roleplay Specific
     <string name="rpg_name">Dark Heresy</string>
     <string name="rpg_edition">1ed</string>
-    <string name="twenty">20</string>
 
     // Characteristics
     <string name="characteristicsTitle">Characteristics</string>
-    <string name="characteristic_1">Weapon Skill</string>
-    <string name="characteristic_2">Ballistic Skill</string>
-    <string name="characteristic_3">Strength</string>
-    <string name="characteristic_4">Toughness</string>
-    <string name="characteristic_5">Agility</string>
-    <string name="characteristic_6">Intelligence</string>
-    <string name="characteristic_7">Perception</string>
-    <string name="characteristic_8">Willpower</string>
-    <string name="characteristic_9">Fellowship</string>
 
     // Extra Characteristics
 
     // Characteristic Abbreviation
-    <string name="characteristic_short_1">WS</string>
-    <string name="characteristic_short_2">BS</string>
-    <string name="characteristic_short_3">S</string>
-    <string name="characteristic_short_4">T</string>
-    <string name="characteristic_short_5">Ag</string>
-    <string name="characteristic_short_6">Int</string>
-    <string name="characteristic_short_7">Per</string>
-    <string name="characteristic_short_8">WP</string>
-    <string name="characteristic_short_9">Fel</string>
 
     // hints
     <string name="hint_characteristic_value">this field contains the value of the characteristic against which the d100 roll will be compared</string>
@@ -95,10 +70,5 @@
     <string name="button_plus_plus">++</string>
     <string name="button_min_min">--</string>
     <string name="button_test">Test</string>
-    <string name="title_activity_example_drawer_delete_me">ExampleDrawer_deleteMe</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
 
 </resources>

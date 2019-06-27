@@ -16,10 +16,6 @@
             android:id="@+id/nav_characteristics"
             android:icon="@drawable/ic_view_list"
             android:title="@string/menu_characteristics" />
-        <item
-            android:id="@+id/nav_test"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_settings" />
     </group>
 
     <item android:title="@string/menu_system">
@@ -28,6 +24,19 @@
                 android:id="@+id/nav_settings"
                 android:icon="@drawable/ic_menu_manage"
                 android:title="@string/menu_settings" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_debug">
+        <menu>
+            <item
+                android:id="@+id/nav_save"
+                android:icon="@mipmap/ic_data"
+                android:title="@string/menu_save" />
+            <item
+                android:id="@+id/nav_load"
+                android:icon="@mipmap/ic_data"
+                android:title="@string/menu_load" />
         </menu>
     </item>
 

@@ -1,27 +1,15 @@
 package com.mangalog.ryuuga.a40kdiceapp.controllers.main;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.android.material.navigation.NavigationView;
-import com.mangalog.ryuuga.a40kdiceapp.controllers.Calculator;
 import com.mangalog.ryuuga.a40kdiceapp.controllers.CharacteristicsMenu;
 import com.mangalog.ryuuga.a40kdiceapp.R;
 import com.mangalog.ryuuga.a40kdiceapp.models.menus.BasicDrawerMenu;
-import com.mangalog.ryuuga.a40kdiceapp.system.Settings;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -29,7 +17,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class MainActivity extends BasicDrawerMenu {
+public class MainMenu extends BasicDrawerMenu {
 
     String dirname;
     String fileName;
@@ -41,26 +29,19 @@ public class MainActivity extends BasicDrawerMenu {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main_drawer_menu);
+        // Set The View
+        ViewStub stub = findViewById(R.id.basic_bar_drawer_stub);
+        stub.setLayoutResource(R.layout.activity_main);
+        stub.inflate();
+
+        //Set Parameters
         this.dirname = "Saves";
         this.fileName = "40k.txt";
         this.dirPathString = this.getFilesDir().getPath() + "/" + dirname;
         this.dirPath = Paths.get(dirPathString);
         this.filePath = dirPath.resolve(fileName);
 
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        DrawerLayout drawer = findViewById(R.id.basic_drawer_layout);
-//        NavigationView navigationView = findViewById(R.id.nav_view_main);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.addDrawerListener(toggle);
-//        toggle.syncState();
-//        navigationView.setNavigationItemSelectedListener(this);
-        ViewStub stub = findViewById(R.id.basic_bar_drawer_stub);
-        stub.setLayoutResource(R.layout.activity_main);
-        stub.inflate();
+
     }
 
     /** Called when the user taps the Send button */
@@ -117,9 +98,9 @@ public class MainActivity extends BasicDrawerMenu {
 
     private boolean onDelete(View view) {
         try {
-            System.out.println("File exists: " + Files.exists(this.filePath));
+            System.out.println("DELETE File found: " + Files.exists(this.filePath));
             Files.deleteIfExists(this.filePath);
-            System.out.println("File exists: " + Files.exists(this.filePath));
+            System.out.println("DELETE File deleted: " + !Files.exists(this.filePath));
         }
         catch(IOException e) {
             e.printStackTrace();

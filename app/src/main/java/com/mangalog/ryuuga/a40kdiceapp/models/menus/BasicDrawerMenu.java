@@ -2,26 +2,20 @@ package com.mangalog.ryuuga.a40kdiceapp.models.menus;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewStub;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.mangalog.ryuuga.a40kdiceapp.R;
-import com.mangalog.ryuuga.a40kdiceapp.controllers.Calculator;
-import com.mangalog.ryuuga.a40kdiceapp.controllers.main.MainActivity;
+import com.mangalog.ryuuga.a40kdiceapp.controllers.DiceMenu;
+import com.mangalog.ryuuga.a40kdiceapp.controllers.CharacteristicsMenu;
+import com.mangalog.ryuuga.a40kdiceapp.controllers.main.MainMenu;
 import com.mangalog.ryuuga.a40kdiceapp.models.BasicAppCompatActivity;
 import com.mangalog.ryuuga.a40kdiceapp.system.Settings;
 
@@ -43,9 +37,6 @@ public class BasicDrawerMenu extends BasicAppCompatActivity
             drawer.addDrawerListener(toggle);
             toggle.syncState();
             navigationView.setNavigationItemSelectedListener(this);
-        }
-        else {
-            setSupportActionBar(null);
         }
     }
 
@@ -86,22 +77,25 @@ public class BasicDrawerMenu extends BasicAppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MainMenu.class);
         switch(id) {
             case R.id.nav_home:
-                intent = new Intent(this, MainActivity.class);
+                intent = new Intent(this, MainMenu.class);
                 break;
             case R.id.nav_dice:
-                intent = new Intent(this, Calculator.class);
+                intent = new Intent(this, DiceMenu.class);
                 break;
             case R.id.nav_characteristics:
-                intent = new Intent(this, BasicDrawerMenu.class);
-                break;
-            case R.id.nav_test:
-                intent = new Intent(this, MainActivity.class);
+                intent = new Intent(this, CharacteristicsMenu.class);
                 break;
             case R.id.nav_settings:
-                intent = new Intent(this, Settings.class);
+                intent = new Intent(this, MainMenu.class);
+                break;
+            case R.id.nav_save:
+                storageManager.save();
+                break;
+            case R.id.nav_load:
+                storageManager.load();
                 break;
         }
 

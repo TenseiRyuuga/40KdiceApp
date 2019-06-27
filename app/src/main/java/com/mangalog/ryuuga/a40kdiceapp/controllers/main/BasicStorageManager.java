@@ -20,8 +20,9 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
-public class StorageManager {
+public class BasicStorageManager {
 
     private String dirname;
     private String fileName;
@@ -31,28 +32,25 @@ public class StorageManager {
 
     private AppCompatActivity activity;
 
-    public StorageManager(AppCompatActivity activity) {
+    BasicStorageManager(AppCompatActivity activity) {
         this.activity = activity;
         this.dirname = "Saves";
         this.fileName = "40k.txt";
-        this.dirPathString = this.activity.getExternalFilesDir(null).getPath() + "/" + dirname;
-        this.dirPath = Paths.get(dirPathString);
-        this.filePath = dirPath.resolve(fileName);
+        updateDirPath();
+        updateFilePath();
     }
 
     /** Called when the user taps the Send button */
-    public boolean save(String string) {
+    boolean save(String string) {
         // retrieve data from field
         try {
             this.dirPath = Paths.get(dirPathString);
             if(!Files.exists(this.dirPath)) {
                 this.dirPath = Files.createDirectory(this.dirPath);
             }
-            this.filePath = this.dirPath.resolve(fileName);
             if(!Files.exists(this.filePath)) {
                 this.filePath = Files.createFile(this.filePath);
             }
-
             Files.write(this.filePath, string.getBytes());
             return true;
         }
@@ -63,10 +61,10 @@ public class StorageManager {
     }
 
     /** Called when the user taps the Send button */
-    public String load() {
-        String data = null;
+    public List<String> load() {
+        List<String> data = null;
         try {
-            data = Files.readAllLines(this.filePath, Charset.defaultCharset()).get(0);
+            data = Files.readAllLines(this.filePath, Charset.defaultCharset());
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -87,5 +85,34 @@ public class StorageManager {
 
     private <T extends View> T findViewById(int id) {
         return activity.findViewById(id);
+    }
+
+    private void updateDirPath() {
+        this.dirPathString = this.activity.getExternalFilesDir(null).getPath() + "/" + dirname;
+        this.dirPath = Paths.get(dirPathString);
+    }
+
+    private void updateFilePath() {
+        this.filePath = dirPath.resolve(fileName);
+    }
+
+    //Setters and Getters
+    protected void setDirname(String dirname) {
+        this.dirname = dirname;
+        updateDirPath();
+        updateFilePath();
+    }
+
+    protected void setFilename(String dirname) {
+        this.dirname = dirname;
+        updateFilePath();
+    }
+
+    protected String getDirname() {
+        return this.dirname;
+    }
+
+    protected String getFilename() {
+        return this.fileName;
     }
 }

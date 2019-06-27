@@ -56,11 +56,12 @@ public class Characteristic {
         return characteristicButtons;
     }
     
-    public int toggleButtonVisibility() {
+    int toggleButtonVisibility() {
         return toggleButtonsVisibility(characteristicButtons);
     }
 
     private int toggleButtonsVisibility (ArrayList<Button> buttons) {
+        // return 8 when edit buttons appear or 0 when they disappear
         int result = -1;
         for (Button button: buttons) {
             result = toggleButtonVisibility(button);
@@ -128,7 +129,7 @@ public class Characteristic {
         this.valueField = valueField;
     }
 
-    public JSONObject getAsJSONObject() {
+    JSONObject getAsJSONObject() {
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put(settings.JSON_NAME, this.name);
@@ -139,7 +140,7 @@ public class Characteristic {
         return jsonObject;
     }
 
-    public void setByJSONObject(JSONObject jsonObject) {
+    void setByJSONObject(JSONObject jsonObject) {
         this.name = jsonObject.optString(settings.JSON_NAME);
         this.value = jsonObject.optInt(settings.JSON_VALUE);
     }

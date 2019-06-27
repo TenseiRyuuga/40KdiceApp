@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".controllers.main.MainActivity">
+    tools:context=".controllers.main.MainMenu">
     <!--tools:showIn="@layout/main_bar_drawer_menu">-->
 
     <Button
@@ -30,10 +30,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:autofillHints="@string/enter_message"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/text"
         android:hint="@string/hint_enter_text"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
