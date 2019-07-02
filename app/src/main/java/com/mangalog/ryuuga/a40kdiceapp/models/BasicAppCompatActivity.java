@@ -26,4 +26,8 @@ public class BasicAppCompatActivity extends AppCompatActivity {
         }
         return storageManager;
     }
+
+    public Settings getSettings() {
+        return settings;
+    }
 }

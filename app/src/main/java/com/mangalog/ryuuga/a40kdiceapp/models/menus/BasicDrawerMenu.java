@@ -17,7 +17,6 @@ import com.mangalog.ryuuga.a40kdiceapp.controllers.DiceMenu;
 import com.mangalog.ryuuga.a40kdiceapp.controllers.CharacteristicsMenu;
 import com.mangalog.ryuuga.a40kdiceapp.controllers.main.MainMenu;
 import com.mangalog.ryuuga.a40kdiceapp.models.BasicAppCompatActivity;
-import com.mangalog.ryuuga.a40kdiceapp.system.Settings;
 
 public class BasicDrawerMenu extends BasicAppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -78,6 +77,7 @@ public class BasicDrawerMenu extends BasicAppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         Intent intent = new Intent(this, MainMenu.class);
+        boolean changeScreen = true;
         switch(id) {
             case R.id.nav_home:
                 intent = new Intent(this, MainMenu.class);
@@ -92,14 +92,18 @@ public class BasicDrawerMenu extends BasicAppCompatActivity
                 intent = new Intent(this, MainMenu.class);
                 break;
             case R.id.nav_save:
-                storageManager.save();
+                storageManager.saveAll();
+                changeScreen = false;
                 break;
             case R.id.nav_load:
-                storageManager.load();
+                storageManager.loadAll();
+                changeScreen = false;
                 break;
         }
 
-        startActivity(intent);
+        if(changeScreen) {
+            startActivity(intent);
+        }
 
         DrawerLayout drawer = findViewById(R.id.basic_drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

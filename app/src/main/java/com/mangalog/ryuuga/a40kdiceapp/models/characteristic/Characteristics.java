@@ -1,6 +1,8 @@
 package com.mangalog.ryuuga.a40kdiceapp.models.characteristic;
 
+import com.mangalog.ryuuga.a40kdiceapp.controllers.CharacteristicsMenu;
 import com.mangalog.ryuuga.a40kdiceapp.enums.characteristics.characteristicsData;
+import com.mangalog.ryuuga.a40kdiceapp.system.Settings;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,16 +49,16 @@ public class Characteristics {
     }
 
     public boolean setByJSONArray(JSONArray jsonArray) {
-        for (Characteristic characteristic: characteristicsList) {
+        for (Characteristic characteristic: this.getCharacteristicsList()) {
             try {
-                characteristic.setByJSONObject(jsonArray.getJSONObject(characteristicsList.indexOf(characteristic)));
+                JSONObject jsonObject = jsonArray.getJSONObject(characteristicsList.indexOf(characteristic));
+                characteristic.setByJSONObject(jsonObject);
             }
             catch (JSONException e) {
                 e.printStackTrace();
                 return false;
             }
         }
-        jsonArray.put(characteristicsList.get(0));
         return true;
     }
 }

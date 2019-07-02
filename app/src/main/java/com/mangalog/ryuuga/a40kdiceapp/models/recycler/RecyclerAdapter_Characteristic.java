@@ -24,12 +24,14 @@ import java.util.ArrayList;
 
 public class RecyclerAdapter_Characteristic extends RecyclerView.Adapter<RecyclerAdapter_Characteristic.RecyclerItemViewHolder> {
     private Settings settings = Settings.getSettings();
+    private Characteristics characteristics;
     private ArrayList<Characteristic> characteristicList;
     private int mLastPosition = 0;
     private DiceBag diceBag;
 
     public RecyclerAdapter_Characteristic(Characteristics characteristics) {
-        this.characteristicList = characteristics.getCharacteristicsList();
+        this.characteristics = characteristics;
+        this.characteristicList = this.characteristics.getCharacteristicsList();
     }
 
     @Override
@@ -158,5 +160,9 @@ public class RecyclerAdapter_Characteristic extends RecyclerView.Adapter<Recycle
             add_more = parent.findViewById(R.id.button_characteristic_add_more);
             button_diceRoll = parent.findViewById(R.id.button_dice_roll);
         }
+    }
+
+    public Characteristics getCharacteristics() {
+        return this.characteristics;
     }
 }

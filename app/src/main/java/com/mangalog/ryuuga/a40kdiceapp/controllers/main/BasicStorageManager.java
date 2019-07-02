@@ -12,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.mangalog.ryuuga.a40kdiceapp.R;
+import com.mangalog.ryuuga.a40kdiceapp.models.BasicAppCompatActivity;
 
 import org.json.JSONObject;
 
@@ -30,9 +31,9 @@ public class BasicStorageManager {
     private Path dirPath;
     private Path filePath;
 
-    private AppCompatActivity activity;
+    private BasicAppCompatActivity activity;
 
-    BasicStorageManager(AppCompatActivity activity) {
+    BasicStorageManager(BasicAppCompatActivity activity) {
         this.activity = activity;
         this.dirname = "Saves";
         this.fileName = "40k.txt";
@@ -41,7 +42,7 @@ public class BasicStorageManager {
     }
 
     /** Called when the user taps the Send button */
-    boolean save(String string) {
+    protected boolean save(String string) {
         // retrieve data from field
         try {
             this.dirPath = Paths.get(dirPathString);
@@ -61,7 +62,7 @@ public class BasicStorageManager {
     }
 
     /** Called when the user taps the Send button */
-    public List<String> load() {
+    protected List<String> load() {
         List<String> data = null;
         try {
             data = Files.readAllLines(this.filePath, Charset.defaultCharset());

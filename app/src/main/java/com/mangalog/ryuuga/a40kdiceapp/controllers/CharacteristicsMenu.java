@@ -6,9 +6,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewStub;
 
+import androidx.annotation.NonNull;
+
 import com.mangalog.ryuuga.a40kdiceapp.R;
 import com.mangalog.ryuuga.a40kdiceapp.controllers.main.BasicStorageManager;
 import com.mangalog.ryuuga.a40kdiceapp.controllers.main.GeneralStorageManager;
+import com.mangalog.ryuuga.a40kdiceapp.models.characteristic.Characteristics;
 import com.mangalog.ryuuga.a40kdiceapp.models.characteristic.CharacteristicsInfoScreen;
 import com.mangalog.ryuuga.a40kdiceapp.models.menus.BasicDrawerMenu;
 
@@ -49,6 +52,26 @@ public class CharacteristicsMenu extends BasicDrawerMenu {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+        boolean result = false;
+
+        switch(id) {
+            case R.id.nav_save:
+                result = storageManager.saveAll();
+                break;
+            case R.id.nav_load:
+                characteristicsInfoScreen.setCharacteristics(storageManager.loadCharacteristics());
+                result = true;
+                break;
+            default:
+                return super.onNavigationItemSelected(item);
+        }
+        return result;
     }
 
     public void onButtonEdit(View view) {

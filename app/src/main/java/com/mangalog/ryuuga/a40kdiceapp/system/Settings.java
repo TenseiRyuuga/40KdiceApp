@@ -19,8 +19,9 @@ public class Settings {
 
     public int OPTION_MENU_ITEM_ORDER_IN_CATEGORY;
 
-    public String JSON_NAME = "name";
-    public String JSON_VALUE = "value";
+    public String JSON_NAME;
+    public String JSON_VALUE;
+    public int JSON_POS_CHARACTERISTICS;
 
 
     private Settings () {
@@ -50,5 +51,10 @@ public class Settings {
         OPTION_MENU_ITEM_ID_EDIT = 2;
 
         OPTION_MENU_ITEM_ORDER_IN_CATEGORY = 100;
+
+        JSON_NAME = "name";
+        JSON_VALUE = "value";
+
+        JSON_POS_CHARACTERISTICS = 0;
     }
 }

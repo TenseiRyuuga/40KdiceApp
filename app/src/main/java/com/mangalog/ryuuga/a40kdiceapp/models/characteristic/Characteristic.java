@@ -28,8 +28,6 @@ public class Characteristic {
     private int value;
     private String name;
 
-
-
     public Characteristic(characteristicsData characteristicData) {
         this.characteristicData = characteristicData;
 
@@ -39,6 +37,9 @@ public class Characteristic {
         //set fields to correct value
         name = characteristicData.getLongName();
         value = characteristicData.getValue();
+
+
+
     }
 
     public int add(int value) {
@@ -108,6 +109,10 @@ public class Characteristic {
         return value;
     }
 
+    private void setName(String name) {
+        this.name = name;
+    }
+
     public void setValueAsString(String string) {
         if(string != null && !string.equals("")) {
             setValueAsInt(Integer.parseInt(string));
@@ -129,7 +134,7 @@ public class Characteristic {
         this.valueField = valueField;
     }
 
-    JSONObject getAsJSONObject() {
+    public JSONObject getAsJSONObject() {
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put(settings.JSON_NAME, this.name);
@@ -140,9 +145,8 @@ public class Characteristic {
         return jsonObject;
     }
 
-    void setByJSONObject(JSONObject jsonObject) {
-        this.name = jsonObject.optString(settings.JSON_NAME);
-        this.value = jsonObject.optInt(settings.JSON_VALUE);
+    public void setByJSONObject(JSONObject jsonObject) {
+        setName(jsonObject.optString(settings.JSON_NAME));
+        setValueAsInt(jsonObject.optInt(settings.JSON_VALUE));
     }
-
 }
