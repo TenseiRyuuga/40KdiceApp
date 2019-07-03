@@ -14,7 +14,6 @@ import java.util.List;
 
 public class GeneralStorageManager extends  BasicStorageManager {
 
-    private BasicAppCompatActivity activity;
     private Settings settings;
 
     private StringBuilder savingData;
@@ -22,9 +21,8 @@ public class GeneralStorageManager extends  BasicStorageManager {
 
     private JSONArray characteristics;
 
-    public GeneralStorageManager(BasicAppCompatActivity activity) {
-        super(activity);
-        this.activity = activity;
+    public GeneralStorageManager(BasicAppCompatActivity activity, String dirname, String fileName) {
+        super(activity, dirname, fileName);
         settings = activity.getSettings();
 
         savingData = new StringBuilder();
@@ -40,6 +38,7 @@ public class GeneralStorageManager extends  BasicStorageManager {
     }
 
     public boolean saveCharacteristics(Characteristics characteristics) {
+        this.characteristics = characteristics.getAsJSONArray();
         return true;
     }
 

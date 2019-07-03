@@ -7,21 +7,16 @@ import android.view.View;
 
 import com.mangalog.ryuuga.a40kdiceapp.R;
 import com.mangalog.ryuuga.a40kdiceapp.controllers.CharacteristicsMenu;
-import com.mangalog.ryuuga.a40kdiceapp.enums.characteristics.characteristicsData;
-import com.mangalog.ryuuga.a40kdiceapp.models.recycler.RecyclerAdapter_Characteristic;
+import com.mangalog.ryuuga.a40kdiceapp.models.recycler.RecyclerAdapterCharacteristic;
 
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 public class CharacteristicsInfoScreen {
     private CharacteristicsMenu characteristicsMenu;
     private Characteristics characteristics;
 
     private RecyclerView recyclerView;
-    private RecyclerAdapter_Characteristic recyclerAdapter;
+    private RecyclerAdapterCharacteristic recyclerAdapter;
 
     public CharacteristicsInfoScreen(CharacteristicsMenu characteristicsMenu) {
         this.characteristicsMenu = characteristicsMenu;
@@ -30,7 +25,7 @@ public class CharacteristicsInfoScreen {
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        recyclerAdapter = new RecyclerAdapter_Characteristic(this.characteristics);
+        recyclerAdapter = new RecyclerAdapterCharacteristic(this.characteristics);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this.characteristicsMenu);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
 
@@ -38,9 +33,8 @@ public class CharacteristicsInfoScreen {
         recyclerView.setAdapter(recyclerAdapter);
 
         recyclerAdapter.notifyData(characteristics);
-//        setCharacteristics(this.characteristics.getAsJSONArray());
-        characteristics.getCharacteristicsList().get(0).setValueAsString("66");
-        ArrayList<Characteristic> temp = characteristics.getCharacteristicsList();
+
+        // load and set any stored data
         characteristics.setByJSONArray(this.characteristicsMenu.getStorageManager().loadCharacteristics());
     }
 

@@ -22,14 +22,14 @@ import com.mangalog.ryuuga.a40kdiceapp.system.Settings;
 
 import java.util.ArrayList;
 
-public class RecyclerAdapter_Characteristic extends RecyclerView.Adapter<RecyclerAdapter_Characteristic.RecyclerItemViewHolder> {
+public class RecyclerAdapterCharacteristic extends RecyclerView.Adapter<RecyclerAdapterCharacteristic.RecyclerItemViewHolder> {
     private Settings settings = Settings.getSettings();
     private Characteristics characteristics;
     private ArrayList<Characteristic> characteristicList;
     private int mLastPosition = 0;
     private DiceBag diceBag;
 
-    public RecyclerAdapter_Characteristic(Characteristics characteristics) {
+    public RecyclerAdapterCharacteristic(Characteristics characteristics) {
         this.characteristics = characteristics;
         this.characteristicList = this.characteristics.getCharacteristicsList();
     }

@@ -49,14 +49,18 @@ public class Characteristics {
     }
 
     public boolean setByJSONArray(JSONArray jsonArray) {
-        for (Characteristic characteristic: this.getCharacteristicsList()) {
-            try {
-                JSONObject jsonObject = jsonArray.getJSONObject(characteristicsList.indexOf(characteristic));
-                characteristic.setByJSONObject(jsonObject);
-            }
-            catch (JSONException e) {
-                e.printStackTrace();
-                return false;
+        // prevent setting a non existing jsonArray;
+        if(jsonArray != null) {
+            // retrieve and walk through all characteristics
+            for (Characteristic characteristic : this.getCharacteristicsList()) {
+                try {
+                    // retrieve the jsonObject for this specific characteristic
+                    JSONObject jsonObject = jsonArray.getJSONObject(characteristicsList.indexOf(characteristic));
+                    characteristic.setByJSONObject(jsonObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return false;
+                }
             }
         }
         return true;

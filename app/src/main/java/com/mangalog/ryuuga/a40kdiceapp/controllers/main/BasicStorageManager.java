@@ -33,10 +33,10 @@ public class BasicStorageManager {
 
     private BasicAppCompatActivity activity;
 
-    BasicStorageManager(BasicAppCompatActivity activity) {
+    BasicStorageManager(BasicAppCompatActivity activity, String dirname, String fileName) {
         this.activity = activity;
-        this.dirname = "Saves";
-        this.fileName = "40k.txt";
+        this.dirname = dirname;
+        this.fileName = fileName;
         updateDirPath();
         updateFilePath();
     }
