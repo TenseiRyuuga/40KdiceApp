@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".controllers.SettingsMenu"
+    tools:context=".controllers.CharacteristicsMenu"
     tools:showIn="@layout/basic_bar_drawer_menu">
 
     <TableRow
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewSettings"
+        android:id="@+id/recyclerViewCharacteristics"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"

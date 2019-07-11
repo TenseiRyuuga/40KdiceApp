@@ -22,8 +22,7 @@ public class CharacteristicsInfoScreen {
         this.characteristicsMenu = characteristicsMenu;
         this.characteristics = new Characteristics();
 
-
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerViewCharacteristics);
 
         recyclerAdapter = new RecyclerAdapterCharacteristic(this.characteristics);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this.characteristicsMenu);

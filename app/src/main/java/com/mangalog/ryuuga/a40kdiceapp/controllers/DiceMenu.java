@@ -22,12 +22,12 @@ public class DiceMenu extends BasicDrawerMenu {
     private DiceBag diceBag = DiceBag.getDiceBag();
     private calculationModifier modifier = calculationModifier.ADD;
     private StringBuilder result_text = new StringBuilder();
-    private String number = settings.BLANK;
+    private String number = settings.BLANK();
     private calculationTarget target = calculationTarget.A;
-    private int a = settings.ZERO;
-    private int b = settings.ZERO;
-    private int result = settings.ZERO;
-    private int sides = settings.ZERO;
+    private int a = settings.ZERO();
+    private int b = settings.ZERO();
+    private int result = settings.ZERO();
+    private int sides = settings.ZERO();
     private boolean locked = false;
 
     @Override
@@ -172,7 +172,7 @@ public class DiceMenu extends BasicDrawerMenu {
 
     private StringBuilder add(int n) {
         locked = false;
-        number += settings.BLANK + n;
+        number += settings.BLANK() + n;
 
         if (target.equals(calculationTarget.A)) {
             a = Integer.parseInt(number);
@@ -204,14 +204,14 @@ public class DiceMenu extends BasicDrawerMenu {
     }
 
     private String clearNumber() {
-        number = settings.BLANK;
+        number = settings.BLANK();
 
         return number;
     }
 
     private StringBuilder clearResultText() {
         TextView textView_result = findViewById(R.id.textView_result);
-        result_text = new StringBuilder(settings.BLANK);
+        result_text = new StringBuilder(settings.BLANK());
         textView_result.setText(result_text);
 
         return result_text;
@@ -220,10 +220,10 @@ public class DiceMenu extends BasicDrawerMenu {
     private void clearAll() {
         clearResultText();
         clearNumber();
-        a = settings.ZERO;
-        b = settings.ZERO;
-        result = settings.ZERO;
-        sides = settings.ZERO;
+        a = settings.ZERO();
+        b = settings.ZERO();
+        result = settings.ZERO();
+        sides = settings.ZERO();
         locked = false;
     }
 
@@ -298,7 +298,7 @@ public class DiceMenu extends BasicDrawerMenu {
             result_text.append(result);
 
             a = result;
-            b = settings.ZERO;
+            b = settings.ZERO();
             switchTarget(calculationTarget.A);
             clearNumber();
             locked = true;

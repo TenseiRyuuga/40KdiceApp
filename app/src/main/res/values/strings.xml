@@ -11,6 +11,7 @@
     <string name="title_activity_main_menu">40K App</string>
     <string name="title_activity_characteristics_menu">Characteristics</string>
     <string name="title_activity_dice_menu">Dice</string>
+    <string name="title_activity_settings_menu">Settings</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_desc">Navigation header</string>

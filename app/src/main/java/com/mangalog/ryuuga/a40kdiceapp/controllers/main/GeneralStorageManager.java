@@ -49,7 +49,7 @@ public class GeneralStorageManager extends  BasicStorageManager {
 
     private boolean prepareData() {
         savingData = new StringBuilder();
-        savingData.insert(settings.JSON_POS_CHARACTERISTICS,this.characteristics);
+        savingData.insert(settings.JSON_POS_CHARACTERISTICS(),this.characteristics);
         return true;
     }
 
@@ -73,7 +73,7 @@ public class GeneralStorageManager extends  BasicStorageManager {
 
     private JSONArray getCharacteristics() {
         try {
-            characteristics = new JSONArray(loadedData.get(settings.JSON_POS_CHARACTERISTICS));
+            characteristics = new JSONArray(loadedData.get(settings.JSON_POS_CHARACTERISTICS()));
         }
         catch (JSONException e) {
             e.printStackTrace();

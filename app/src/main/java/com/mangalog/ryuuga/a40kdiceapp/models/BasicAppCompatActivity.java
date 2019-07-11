@@ -22,7 +22,7 @@ public class BasicAppCompatActivity extends AppCompatActivity {
 
     private GeneralStorageManager getStorageManager() {
         if (storageManager == null) {
-            storageManager = new GeneralStorageManager(this);
+            storageManager = new GeneralStorageManager(this, "Saves", "40k.txt");
         }
         return storageManager;
     }

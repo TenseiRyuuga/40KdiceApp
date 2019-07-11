@@ -9,9 +9,7 @@ import android.view.ViewStub;
 import androidx.annotation.NonNull;
 
 import com.mangalog.ryuuga.a40kdiceapp.R;
-import com.mangalog.ryuuga.a40kdiceapp.controllers.main.BasicStorageManager;
 import com.mangalog.ryuuga.a40kdiceapp.controllers.main.GeneralStorageManager;
-import com.mangalog.ryuuga.a40kdiceapp.models.characteristic.Characteristics;
 import com.mangalog.ryuuga.a40kdiceapp.models.characteristic.CharacteristicsInfoScreen;
 import com.mangalog.ryuuga.a40kdiceapp.models.menus.BasicDrawerMenu;
 
@@ -24,7 +22,7 @@ public class CharacteristicsMenu extends BasicDrawerMenu {
         super.onCreate(savedInstanceState);
         // Set The View
         ViewStub stub = findViewById(R.id.basic_bar_drawer_stub);
-        stub.setLayoutResource(R.layout.characteristics_drawer_menu);
+        stub.setLayoutResource(R.layout.activity_characteristics_menu);
         stub.inflate();
         //Set Parameters
         this.characteristicsInfoScreen = new CharacteristicsInfoScreen(this);
@@ -34,7 +32,7 @@ public class CharacteristicsMenu extends BasicDrawerMenu {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         super.onCreateOptionsMenu(menu);
-        menu.add(Menu.NONE, settings.OPTION_MENU_ITEM_ID_EDIT, settings.OPTION_MENU_ITEM_ORDER_IN_CATEGORY, "Edit");
+        menu.add(Menu.NONE, settings.OPTION_MENU_ITEM_ID_EDIT(), settings.OPTION_MENU_ITEM_ORDER_IN_CATEGORY(), "Edit");
         getMenuInflater().inflate(R.menu.basic_drawer_menu, menu);
         return true;
     }
@@ -47,7 +45,7 @@ public class CharacteristicsMenu extends BasicDrawerMenu {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == settings.OPTION_MENU_ITEM_ID_EDIT) {
+        if (id == settings.OPTION_MENU_ITEM_ID_EDIT()) {
                 onButtonEdit(item.getActionView());
         }
 

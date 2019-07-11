@@ -15,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SettingsMenu"></activity>
         <activity android:name=".models.BasicAppCompatActivity" />
         <activity android:name=".models.menus.BasicDrawerMenu" />
         <activity
@@ -25,6 +24,10 @@
         <activity
             android:name=".controllers.CharacteristicsMenu"
             android:label="@string/title_activity_characteristics_menu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".controllers.SettingsMenu"
+            android:label="@string/title_activity_settings_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".controllers.main.MainMenu"

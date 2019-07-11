@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp"
+    android:orientation="horizontal"
+    app:cardBackgroundColor="@color/colorPrimary">
+
+    <TableRow
+        android:id="@+id/recyclerview_row_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/settingName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:text="@string/blank"
+            android:textSize="12sp"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <EditText
+            android:id="@+id/settingValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:enabled="false"
+            android:hint="@string/hint_characteristic_value"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:text="@string/blank"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+    </TableRow>
+</androidx.cardview.widget.CardView>

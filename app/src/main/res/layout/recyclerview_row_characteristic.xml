@@ -10,7 +10,7 @@
     app:cardBackgroundColor="@color/colorPrimary">
 
     <TableRow
-        android:id="@+id/recyclerview_row_characteristic"
+        android:id="@+id/recyclerview_row_setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
@@ -44,7 +44,7 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/characteristicName"
+            android:id="@+id/settingName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="0dp"
@@ -55,7 +55,7 @@
             tools:visibility="visible" />
 
         <EditText
-            android:id="@+id/characteristicValue"
+            android:id="@+id/settingValue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="0dp"

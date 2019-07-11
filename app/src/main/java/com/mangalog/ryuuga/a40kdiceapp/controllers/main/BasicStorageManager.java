@@ -34,7 +34,9 @@ public class BasicStorageManager {
     private BasicAppCompatActivity activity;
 
     BasicStorageManager(BasicAppCompatActivity activity, String dirname, String fileName) {
-        this.activity = activity;
+        if  (activity != null) {
+            this.activity = activity;
+        }
         this.dirname = dirname;
         this.fileName = fileName;
         updateDirPath();
@@ -82,10 +84,6 @@ public class BasicStorageManager {
             return false;
         }
         return true;
-    }
-
-    private <T extends View> T findViewById(int id) {
-        return activity.findViewById(id);
     }
 
     private void updateDirPath() {

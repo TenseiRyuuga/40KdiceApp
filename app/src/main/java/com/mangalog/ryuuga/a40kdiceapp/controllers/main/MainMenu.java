@@ -31,7 +31,7 @@ public class MainMenu extends BasicDrawerMenu {
         super.onCreate(savedInstanceState);
         // Set The View
         ViewStub stub = findViewById(R.id.basic_bar_drawer_stub);
-        stub.setLayoutResource(R.layout.activity_main);
+        stub.setLayoutResource(R.layout.activity_main_menu);
         stub.inflate();
 
         //Set Parameters

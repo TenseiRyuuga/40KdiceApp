@@ -23,13 +23,14 @@ import com.mangalog.ryuuga.a40kdiceapp.system.Settings;
 import java.util.ArrayList;
 
 public class RecyclerAdapterCharacteristic extends RecyclerView.Adapter<RecyclerAdapterCharacteristic.RecyclerItemViewHolder> {
-    private Settings settings = Settings.getSettings();
+    private Settings settings;
     private Characteristics characteristics;
     private ArrayList<Characteristic> characteristicList;
     private int mLastPosition = 0;
     private DiceBag diceBag;
 
     public RecyclerAdapterCharacteristic(Characteristics characteristics) {
+        this.settings = Settings.getSettings();
         this.characteristics = characteristics;
         this.characteristicList = this.characteristics.getCharacteristicsList();
     }
@@ -55,12 +56,11 @@ public class RecyclerAdapterCharacteristic extends RecyclerView.Adapter<Recycler
         characteristic.addButton(holder.button_diceRoll);
 
         holder.characteristicName.setText(characteristic.getName());
-        final EditText editTextValue = holder.characteristicValue;
-        editTextValue.setText(characteristic.getValueAsString());
+        holder.characteristicValue.setText(characteristic.getValueAsString());
 
         final Button button_diceRoll = holder.button_diceRoll;
 
-        editTextValue.addTextChangedListener(new TextWatcher() {
+        holder.characteristicValue.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -80,40 +80,40 @@ public class RecyclerAdapterCharacteristic extends RecyclerView.Adapter<Recycler
         holder.subtract_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v ) {
-                characteristic.subtract(settings.CHARACTERISTIC_MORE_AMOUNT);
-                editTextValue.setText(characteristic.getValueAsString());
+                characteristic.subtract(settings.CHARACTERISTIC_MORE_AMOUNT());
+                holder.characteristicValue.setText(characteristic.getValueAsString());
             }
         });
 
         holder.subtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v ) {
-                characteristic.subtract(settings.CHARACTERISTIC_AMOUNT);
-                editTextValue.setText(characteristic.getValueAsString());
+                characteristic.subtract(settings.CHARACTERISTIC_AMOUNT());
+                holder.characteristicValue.setText(characteristic.getValueAsString());
             }
         });
 
         holder.add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v ) {
-                characteristic.add(settings.CHARACTERISTIC_AMOUNT);
-                editTextValue.setText(characteristic.getValueAsString());
+                characteristic.add(settings.CHARACTERISTIC_AMOUNT());
+                holder.characteristicValue.setText(characteristic.getValueAsString());
             }
         });
 
         holder.add_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v ) {
-                characteristic.add(settings.CHARACTERISTIC_MORE_AMOUNT);
-                editTextValue.setText(characteristic.getValueAsString());
+                characteristic.add(settings.CHARACTERISTIC_MORE_AMOUNT());
+                holder.characteristicValue.setText(characteristic.getValueAsString());
             }
         });
 
         holder.button_diceRoll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v ) {
-                int diceRoll = diceBag.getDice(settings.CHARACTERISTIC_DICE_TEST_AMOUNT, settings.CHARACTERISTIC_DICE_TEST_NAME).roll();
-                String text = settings.BLANK + diceRoll;
+                int diceRoll = diceBag.getDice(settings.CHARACTERISTIC_DICE_TEST_AMOUNT(), settings.CHARACTERISTIC_DICE_TEST_NAME()).roll();
+                String text = settings.BLANK() + diceRoll;
                 button_diceRoll.setText(text);
                 if(diceRoll > characteristic.getValue()) {
                     button_diceRoll.setBackgroundTintList(button_diceRoll.getResources().getColorStateList(R.color.colorTestFailed, button_diceRoll.getContext().getTheme()));
@@ -150,10 +150,10 @@ public class RecyclerAdapterCharacteristic extends RecyclerView.Adapter<Recycler
 
         RecyclerItemViewHolder(final View parent) {
             super(parent);
-            mainLayout = parent.findViewById(R.id.recyclerview_row_characteristic);
+            mainLayout = parent.findViewById(R.id.recyclerview_row_setting);
 
-            characteristicName = parent.findViewById(R.id.characteristicName);
-            characteristicValue = parent.findViewById(R.id.characteristicValue);
+            characteristicName = parent.findViewById(R.id.settingName);
+            characteristicValue = parent.findViewById(R.id.settingValue);
             subtract_more = parent.findViewById(R.id.button_characteristic_subtract_more);
             subtract = parent.findViewById(R.id.button_characteristic_subtract);
             add = parent.findViewById(R.id.button_characteristic_add);

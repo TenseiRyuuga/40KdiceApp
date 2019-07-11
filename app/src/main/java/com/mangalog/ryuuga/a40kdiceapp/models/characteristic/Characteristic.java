@@ -98,7 +98,7 @@ public class Characteristic {
 
     // getters and setters
     public String getValueAsString() {
-        return settings.BLANK + getValue();
+        return settings.BLANK() + getValue();
     }
 
     public String getName() {
@@ -137,8 +137,8 @@ public class Characteristic {
     public JSONObject getAsJSONObject() {
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put(settings.JSON_NAME, this.name);
-            jsonObject.put(settings.JSON_VALUE, this.value);
+            jsonObject.put(settings.JSON_NAME(), this.name);
+            jsonObject.put(settings.JSON_VALUE(), this.value);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -146,7 +146,7 @@ public class Characteristic {
     }
 
     public void setByJSONObject(JSONObject jsonObject) {
-        setName(jsonObject.optString(settings.JSON_NAME));
-        setValueAsInt(jsonObject.optInt(settings.JSON_VALUE));
+        setName(jsonObject.optString(settings.JSON_NAME()));
+        setValueAsInt(jsonObject.optInt(settings.JSON_VALUE()));
     }
 }

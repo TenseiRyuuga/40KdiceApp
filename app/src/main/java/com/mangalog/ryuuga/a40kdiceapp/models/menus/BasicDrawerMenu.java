@@ -13,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.mangalog.ryuuga.a40kdiceapp.R;
+import com.mangalog.ryuuga.a40kdiceapp.controllers.SettingsMenu;
 import com.mangalog.ryuuga.a40kdiceapp.controllers.DiceMenu;
 import com.mangalog.ryuuga.a40kdiceapp.controllers.CharacteristicsMenu;
 import com.mangalog.ryuuga.a40kdiceapp.controllers.main.MainMenu;
@@ -52,7 +53,7 @@ public class BasicDrawerMenu extends BasicAppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menu.add(Menu.NONE, settings.OPTION_MENU_ITEM_ID_SETTINGS, settings.OPTION_MENU_ITEM_ORDER_IN_CATEGORY, "Settings");
+        menu.add(Menu.NONE, settings.OPTION_MENU_ITEM_ID_SETTINGS(), settings.OPTION_MENU_ITEM_ORDER_IN_CATEGORY(), "Settings");
         getMenuInflater().inflate(R.menu.basic_drawer_menu, menu);
         return true;
     }
@@ -65,7 +66,7 @@ public class BasicDrawerMenu extends BasicAppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == settings.OPTION_MENU_ITEM_ID_SETTINGS) {
+        if (id == settings.OPTION_MENU_ITEM_ID_SETTINGS()) {
             return true;
         }
 
@@ -89,7 +90,7 @@ public class BasicDrawerMenu extends BasicAppCompatActivity
                 intent = new Intent(this, CharacteristicsMenu.class);
                 break;
             case R.id.nav_settings:
-                intent = new Intent(this, MainMenu.class);
+                intent = new Intent(this, SettingsMenu.class);
                 break;
             case R.id.nav_save:
                 storageManager.saveAll();
